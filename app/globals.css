@@ -3,21 +3,61 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --white: #fff;
+  --black: --#000;
+  --lightGray: #f8f8f8;
+  --darkGray: #333333;   
+  --lightPurple: #e4e1fc;
+  --lightBlue: #e1e9f3;
+  --brightBlue: #2764fe;
+  --brightRed: #f1414f;
+  --slightPurple: '#EAF0FF'
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--lightGray);
+  background: var(--white);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+  font-family: "MetropolisBold";
+  src: url("/fonts/MetropolisBold.eot");
+  src: url("/fonts/MetropolisBold.eot") format("embedded-opentype"),
+    url("/fonts/MetropolisBold.woff2") format("woff2"),
+    url("/fonts/MetropolisBold.woff") format("woff"),
+    url("/fonts/MetropolisBold.ttf") format("truetype"),
+    url("/fonts/MetropolisBold.svg#MetropolisBold") format("svg");
+}
+
+@font-face {
+  font-family: "MetropolisSemiBold";
+  src: url("/fonts/MetropolisSemiBold.eot");
+  src: url("/fonts/MetropolisSemiBold.eot") format("embedded-opentype"),
+    url("/fonts/MetropolisSemiBold.woff2") format("woff2"),
+    url("/fonts/MetropolisSemiBold.woff") format("woff"),
+    url("/fonts/MetropolisSemiBold.ttf") format("truetype"),
+    url("/fonts/MetropolisSemiBold.svg#MetropolisSemiBold") format("svg");
+}
+
+@font-face {
+  font-family: "MetropolisMedium";
+  src: url("/fonts/MetropolisMedium.eot");
+  src: url("/fonts/MetropolisMedium.eot") format("embedded-opentype"),
+    url("/fonts/MetropolisMedium.woff2") format("woff2"),
+    url("/fonts/MetropolisMedium.woff") format("woff"),
+    url("/fonts/MetropolisMedium.ttf") format("truetype"),
+    url("/fonts/MetropolisMedium.svg#MetropolisMedium") format("svg");
+}
+
+@font-face {
+  font-family: "MetropolisRegular";
+  src: url("/fonts/MetropolisRegular.eot");
+  src: url("/fonts/MetropolisRegular.eot") format("embedded-opentype"),
+    url("/fonts/MetropolisRegular.woff2") format("woff2"),
+    url("/fonts/MetropolisRegular.woff") format("woff"),
+    url("/fonts/MetropolisRegular.ttf") format("truetype"),
+    url("/fonts/MetropolisRegular.svg#MetropolisRegular") format("svg");
 }
 
 @layer utilities {
@@ -25,3 +65,24 @@ body {
     text-wrap: balance;
   }
 }
+
+.task-icon:hover .inner-icon svg {
+  fill: #2764FE;
+}
+
+.total-height {
+  height: calc(86dvh - 80px);
+  /* height: calc(100dvh - 12.10%); */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.overview::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.overview {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+

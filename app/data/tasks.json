@@ -1,0 +1,52 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "message": "Create a reminder to send files to Jegan tomorrow",
+      "response": "Sure, Here is reminder preview",
+      "details": {
+        "type": "Appointment",
+        "task": "Send files to Jegan",
+        "description": "No Description",
+        "date": "30, April 2024",
+        "buttonText": "View Task"
+      }
+    },
+    {
+      "id": 2,
+      "message": "Also add a description that the files should be in pdf format",
+      "response": "Sure, Here is the updated reminder preview",
+      "details": {
+        "type": "Appointment",
+        "task": "Send files to Jegan",
+        "description": "in pdf format",
+        "date": "30, April 2024",
+        "buttonText": "View Task"
+      }
+    },
+    {
+      "id": 3,
+      "message": "Also add a description that the files should be in pdf format",
+      "response": "Sure, Here is the updated reminder preview",
+      "details": {
+        "type": "Appointment",
+        "task": "Send files to Jegan",
+        "description": "in pdf format",
+        "date": "30, April 2024",
+        "buttonText": "View Task"
+      }
+    },
+    {
+      "id": 4,
+      "message": "Also add a description that the files should be in pdf format",
+      "response": "Sure, Here is the updated reminder preview",
+      "details": {
+        "type": "Appointment",
+        "task": "Send files to Jegan",
+        "description": "in pdf format",
+        "date": "30, April 2024",
+        "buttonText": "View Task"
+      }
+    }
+  ]
+}
