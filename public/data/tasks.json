@@ -26,26 +26,16 @@
     },
     {
       "id": 3,
-      "message": "Also add a description that the files should be in pdf format",
-      "response": "Sure, Here is the updated reminder preview",
+      "message": "Sow me the overdue tasks",
+      "response": "Sure, Here are your overdue tasks",
       "details": {
-        "type": "Appointment",
-        "task": "Send files to Jegan",
-        "description": "in pdf format",
-        "date": "30, April 2024",
-        "buttonText": "View Task"
-      }
-    },
-    {
-      "id": 4,
-      "message": "Also add a description that the files should be in pdf format",
-      "response": "Sure, Here is the updated reminder preview",
-      "details": {
-        "type": "Appointment",
-        "task": "Send files to Jegan",
-        "description": "in pdf format",
-        "date": "30, April 2024",
-        "buttonText": "View Task"
+        "type": "Task List",
+        "tasks": [
+          { "name": "Send a project to quanttera", "icon": "/img/tasksBlue.svg" },
+          { "name": "Check all sql performance tuning", "icon": "/img/notify.svg" },
+          { "name": "Create logo for team", "icon": "/img/tasksBlue.svg" },
+          { "name": "Drop Jay to school", "icon": "/img/tasksBlue.svg" }
+        ]
       }
     }
   ]
