@@ -2,15 +2,15 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import mic from "../../../public/img/mic.svg";
-import tasks from "../../../public/img/tasks.svg";
-import notes from "../../../public/img/notes.svg";
-import notification from "../../../public/img/notification.svg";
-import setting from "../../../public/img/setting.svg";
-import logout from "../../../public/img/logout.svg";
-import bigUser from "../../../public/img/bigUser.png";
-import arrowUp from "../../../public/img/arrowUp.svg";
-import calenderLight from "../../../public/img/calenderLight.svg";
+import mic from "../../public/img/mic.svg";
+import tasks from "../../public/img/tasks.svg";
+import notes from "../../public/img/notes.svg";
+import notification from "../../public/img/notification.svg";
+import setting from "../../public/img/setting.svg";
+import logout from "../../public/img/logout.svg";
+import bigUser from "../../public/img/bigUser.png";
+import arrowUp from "../../public/img/arrowUp.svg";
+import calenderLight from "../../public/img/calenderLight.svg";
 
 const Sidebar = ({
   isSidebarCollapsed,
@@ -126,12 +126,12 @@ const Sidebar = ({
 
           {/* Other Sidebar Items */}
           {[
-            { icon: notes, label: "Notes",  count: 0 },
-            { icon: notification, label: "Notifications", count: 7 },
-            { icon: setting, label: "Settings",  count: 0 },
+            { icon: notes, label: "Notes",  count: 0,links: "notes" },
+            { icon: notification, label: "Notifications", count: 7,links: "notifications" },
+            { icon: setting, label: "Settings",  count: 0,links: "settings" },
           ].map((item, idx) => (
             <Link
-              href="/"
+              href={item.links}
               key={idx}
               className={`task-icon hover:bg-[#2764fe19] hover:rounded-[12px] p-2 ${
                 effectiveIsSidebarCollapsed ? "px-0" : ""
@@ -163,7 +163,7 @@ const Sidebar = ({
         {/* Bottom Section */}
         <div className={`flex flex-col gap-8 mt-auto ${effectiveIsSidebarCollapsed ? "items-center" : ""}`}>
           {/* Assistant */}
-          <Link href="/">
+          <Link href="/chatbot">
             <button
               className={`${
                 effectiveIsSidebarCollapsed ? "!w-10 !h-10" : "w-full"

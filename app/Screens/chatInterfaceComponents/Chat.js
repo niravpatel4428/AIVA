@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import Sidebar from "./Sidebar";
-import ChatHeader from "./ChatHeader";
-import ChatBox from "./ChatBox";
+import Sidebar from "../../components/Sidebar";
+import ChatHeader from './../../components/ChatHeader';
+import ChatBox from './ChatBox';
 const Chat = () => {
-    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
     const toggleSidebar = () => {

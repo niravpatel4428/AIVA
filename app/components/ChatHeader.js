@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import search from "../../../public/img/search.svg";
-import sidebar from "../../../public/img/sidebar.svg";
+import search from "../../public/img/search.svg";
+import sidebar from "../../public/img/sidebar.svg";
 
 const ChatHeader = ({ toggleSidebar,toggleMobileSidebar }) => {
   return (

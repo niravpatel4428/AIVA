@@ -86,3 +86,17 @@ body {
 scrollbar-width: none;  /* Firefox */
 }
 
+
+/* ------- loginSlider ------ */
+.slick-slider {opacity:0;}
+.slick-slider.slick-initialized{opacity:1;}
+.slick-dots {position:relative !important; bottom:0px !important;}
+.loginSlider .slick-dots div {height:6px;width:6px;}
+.loginSlider .slick-dots .slick-active div {
+  width:24px;
+}
+.loginSlider .slick-list {padding-bottom: 35px;}
+
+@media (max-width:1199px) {
+/* .slick-dots {bottom:-46px !important;} */
+}
