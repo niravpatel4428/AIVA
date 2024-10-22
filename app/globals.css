@@ -100,3 +100,8 @@ scrollbar-width: none;  /* Firefox */
 @media (max-width:1199px) {
 /* .slick-dots {bottom:-46px !important;} */
 }
+
+
+/* ---------- time-picker css ---------- */
+.react-time-picker__wrapper { border: none !important; }
+.react-time-picker__inputGroup input:focus { outline: 0; box-shadow: none !important; } 
