@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from 'react'
-import Sidebar from './../../components/Sidebar';
-import ChatHeader from './../../components/ChatHeader';
+import React, { useState } from "react";
+import Sidebar from "./../../components/Sidebar";
+import ChatHeader from "./../../components/ChatHeader";
 import NotificationsMain from "./NotificationsMain";
 const NotificationScreen = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -16,7 +16,8 @@ const NotificationScreen = () => {
   };
   return (
     <>
-      <div className="relative flex flex-row gap-4 bg-lightGray p-4 h-screen">
+      <NotificationsMain />
+      {/* <div className="relative flex flex-row gap-4 bg-lightGray p-4 h-screen">
         <>
           <Sidebar
             isSidebarCollapsed={isSidebarCollapsed}
@@ -32,7 +33,7 @@ const NotificationScreen = () => {
           />
           <NotificationsMain />
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

@@ -1,20 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import mark from "./../../../public/img/mark.svg";
-import pen from "./../../../public/img/pen.svg";
-import bin from "./../../../public/img/bin.svg";
-import location from "./../../../public/img/location.svg";
-import arrowUp from "./../../../public/img/arrowUp.svg";
-import notesBlue from "./../../../public/img/notesBlue.svg";
-import calenderBlue from "./../../../public/img/calenderBlue.svg";
-import clockBlue from "./../../../public/img/clockBlue.svg";
-import cancleBlue from "./../../../public/img/cancleBlue.svg";
-import trueBlue from "./../../../public/img/trueBlue.svg";
+import mark from "../../../../public/img/mark.svg";
+import pen from "../../../../public/img/pen.svg";
+import bin from "../../../../public/img/bin.svg";
+import location from "../../../../public/img/location.svg";
+import arrowUp from "../../../../public/img/arrowUp.svg";
+import notesBlue from "../../../../public/img/notesBlue.svg";
+import calenderBlue from "../../../../public/img/calenderBlue.svg";
+import clockBlue from "../../../../public/img/clockBlue.svg";
+import cancleBlue from "../../../../public/img/cancleBlue.svg";
+import trueBlue from "../../../../public/img/trueBlue.svg";
 
 import { taskData } from "./taskData";
 import TaskComp from "./Task";
-import Modal from "../../components/Modal";
+import Modal from "../../../components/Modal";
 import DatePicker from "react-datepicker";
 import TimePicker from "react-time-picker";
 const TaskToday = () => {
@@ -23,6 +23,7 @@ const TaskToday = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [time, setTime] = useState("18:00");
+  const [time1, setTime1] = useState("18:00");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenEdit, setIsModalOpenEdit] = useState(false);
 
@@ -31,6 +32,7 @@ const TaskToday = () => {
   const handleOpenModalEdit = () => setIsModalOpenEdit(true);
   const handleCloseModalEdit = () => setIsModalOpenEdit(false);
   const handleTimeChange = (newTime) => { setTime(newTime); };
+  const handleTimeChange1 = (newTime) => { setTime(newTime); };
   const handleDateChange = (date) => { setSelectedDate(date); };
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   return (
@@ -38,7 +40,6 @@ const TaskToday = () => {
       <div className="overflow-hidden h-full">
         <div className="flex flex-wrap gap-3 mb-4 pt-[2px]">
           <button
-            onClick={() => setActiveCategory(null)} // Button to reset the filter
             className={`text-xs font-MetSemiBold text-brightBlue bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:!outline-none outline-0 ring-0 ring-none `}
           >
             All
@@ -46,7 +47,6 @@ const TaskToday = () => {
           {categories.map((category, index) => (
             <button
               key={index}
-              onClick={() => setActiveCategory(category)}
               className={`text-xs font-MetSemiBold text-brightBlue bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:!outline-none outline-0 ring-0 ring-none `}
             >
               {category}
@@ -99,7 +99,7 @@ const TaskToday = () => {
         </div>
         {/* ------ modal ------- */}
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-          <div className="flex flex-col h-full">
+          <div className="md:flex md:flex-col h-full">
             <div className="flex justify-between w-full max-w-[636px] mb-3 sm:mb-7 max-md:pr-10 max-sm:items-start">
               <h2 className="text-darkGray text-xl font-MetBold">
                 Attend Jay’s School Event
@@ -115,33 +115,8 @@ const TaskToday = () => {
               </div>
             </div>
             {/* ----------- modal header finished ----------- */}
-            <div className="flex flex-col-reverse max-md:gap-4 max-md:justify-end md:flex-row h-full overflow-y-auto">
-              <div className="w-full max-w-[451px] pr-6 md:border-r-[1px] border-[#dfdfdf]">
-                <p className="text-[#6C6B6B] font-MetRegular text-sm leading-[150%]">
-                  Lorem ipsum dolor sit amet consectetur. Habitasse pretium leo
-                  tincidunt mauris
-                </p>
-                <div className="bg-[#f1f1f1] w-full h-[1px] relative content-[''] my-5"></div>
-                <ul className="flex flex-row gap-2 sm:gap-4 items-center max-sm:flex-wrap max-sm:justify-between">
-                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
-                    <Image src={mark} alt="icons" className="object-contain" />
-                    <p className="text-darkGray font-MetMedium text-xs">
-                      Mark Complete
-                    </p>
-                  </li>
-                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
-                    <Image src={pen} alt="icons" className="object-contain" />
-                    <p className="text-darkGray font-MetMedium text-xs">Edit</p>
-                  </li>
-                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
-                    <Image src={bin} alt="icons" className="object-contain" />
-                    <p className="text-darkGray font-MetMedium text-xs">
-                      Delete
-                    </p>
-                  </li>
-                </ul>
-              </div>
-              <div className="md:h-full md:pl-4 max-md:flex max-sm:flex-col max-sm:flex-nowrap max-md:flex-wrap max-md:justify-between">
+            <div className="md:flex max-md:gap-4 max-md:justify-end md:flex-row-reverse h-full overflow-y-scroll overview max-md:pb-52">
+              <div className="md:h-full md:pl-4 max-md:flex max-sm:flex-col max-sm:flex-nowrap max-md:flex-wrap max-md:justify-between w-full  md:max-w-[205px] ">
                 {/* ------ type date ------ */}
                 <div className="py-2 sm:pb-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
@@ -222,19 +197,13 @@ const TaskToday = () => {
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Time
                   </p>
-                  <div className="flex flex-row gap-[5px] items-center">
-                    <Image
-                      src={clockBlue}
-                      alt="clockBlue"
-                      className="object-contain w-4 h-4"
-                    />
+                  <div className="only-time notesFilter-modal">
                     <TimePicker
                       onChange={handleTimeChange}
                       value={time}
-                      clockIcon={null} // You can remove the default clock icon
-                      clearIcon={null} // Removes the clear button
+                      clearIcon={null}
                       format="hh:mm a"
-                      disableClock={true} // Hides the clock popup
+                      disableClock={false}
                       className="font-MetMedium text-[#6C6B6B] text-xs leading-[150%] cursor-pointer"
                     />
                   </div>
@@ -267,6 +236,31 @@ const TaskToday = () => {
                   </div>
                 </div>
               </div>
+              <div className="w-full max-w-[451px] pr-6 md:border-r-[1px] border-[#dfdfdf]">
+                <p className="text-[#6C6B6B] font-MetRegular text-sm leading-[150%]">
+                  Lorem ipsum dolor sit amet consectetur. Habitasse pretium leo
+                  tincidunt mauris
+                </p>
+                <div className="bg-[#f1f1f1] w-full h-[1px] relative content-[''] my-5"></div>
+                <ul className="flex flex-row gap-2 sm:gap-4 items-center max-sm:flex-wrap max-sm:justify-between">
+                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
+                    <Image src={mark} alt="icons" className="object-contain" />
+                    <p className="text-darkGray font-MetMedium text-xs">
+                      Mark Complete
+                    </p>
+                  </li>
+                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
+                    <Image src={pen} alt="icons" className="object-contain" />
+                    <p className="text-darkGray font-MetMedium text-xs">Edit</p>
+                  </li>
+                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
+                    <Image src={bin} alt="icons" className="object-contain" />
+                    <p className="text-darkGray font-MetMedium text-xs">
+                      Delete
+                    </p>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </Modal>
@@ -275,15 +269,26 @@ const TaskToday = () => {
           <div className="flex flex-col h-full">
             <div className="flex justify-between w-full max-w-[636px] mb-3 sm:mb-7 max-md:pr-10 items-start max-md:flex-col max-md:gap-5">
               <div className="reltive flex flex-col gap-2 w-full max-w-[400px]">
-              <input type="text" value="Attend Jay&apos;s School Event" className="text-darkGray text-xl font-MetBold p-[8px_17px] border border-[#DFDFDF] rounded-lg bg-white focus:outline-none " />
+                <input
+                  type="text"
+                  value="Attend Jay's School Event"
+                  className="text-darkGray text-xl font-MetBold p-[8px_17px] border border-[#DFDFDF] rounded-lg bg-white focus:outline-none "
+                />
                 <div className="flex flex-row gap-2">
-                    <div className="w-6 h-6 rounded-full flex justify-center items-center bg-[#EAF0FF]">
-                        <Image src={cancleBlue} alt="cancleBlue" className="object-contain" />
-                    </div>
-                    <div className="w-6 h-6 rounded-full flex justify-center items-center bg-brightBlue">
-                    <Image src={trueBlue} alt="trueBlue" className="object-contain" />
-                    </div>
-
+                  <div className="w-6 h-6 rounded-full flex justify-center items-center bg-[#EAF0FF]">
+                    <Image
+                      src={cancleBlue}
+                      alt="cancleBlue"
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="w-6 h-6 rounded-full flex justify-center items-center bg-brightBlue">
+                    <Image
+                      src={trueBlue}
+                      alt="trueBlue"
+                      className="object-contain"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="relative flex flex-row items-center">
@@ -297,33 +302,8 @@ const TaskToday = () => {
               </div>
             </div>
             {/* ----------- modal header finished ----------- */}
-            <div className="flex flex-col-reverse max-md:gap-4 max-md:justify-end md:flex-row h-full overflow-y-auto">
-              <div className="w-full max-w-[451px] pr-6 md:border-r-[1px] border-[#dfdfdf]">
-                <p className="text-[#6C6B6B] font-MetRegular text-sm leading-[150%]">
-                  Lorem ipsum dolor sit amet consectetur. Habitasse pretium leo
-                  tincidunt mauris
-                </p>
-                <div className="bg-[#f1f1f1] w-full h-[1px] relative content-[''] my-5"></div>
-                <ul className="flex flex-row gap-2 sm:gap-4 items-center max-sm:flex-wrap max-sm:justify-between">
-                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
-                    <Image src={mark} alt="icons" className="object-contain" />
-                    <p className="text-darkGray font-MetMedium text-xs">
-                      Mark Complete
-                    </p>
-                  </li>
-                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
-                    <Image src={pen} alt="icons" className="object-contain" />
-                    <p className="text-darkGray font-MetMedium text-xs">Edit</p>
-                  </li>
-                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
-                    <Image src={bin} alt="icons" className="object-contain" />
-                    <p className="text-darkGray font-MetMedium text-xs">
-                      Delete
-                    </p>
-                  </li>
-                </ul>
-              </div>
-              <div className="md:h-full md:pl-4 max-md:flex max-sm:flex-col max-sm:flex-nowrap max-md:flex-wrap max-md:justify-between">
+            <div className="md:flex max-md:gap-4 max-md:justify-end md:flex-row-reverse h-full overflow-y-scroll overview max-md:pb-52">
+              <div className="md:h-full md:pl-4 max-md:flex max-sm:flex-col max-sm:flex-nowrap max-md:flex-wrap max-md:justify-between w-full  md:max-w-[205px] ">
                 {/* ------ type date ------ */}
                 <div className="py-2 sm:pb-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
@@ -353,6 +333,7 @@ const TaskToday = () => {
                         }`}
                       />
                     </button>
+
                     {/* Dropdown */}
                     {isDropdownOpen && (
                       <div className="absolute z-[2] mt-1 bg-white border border-[#f1f1f1] rounded-lg shadow-lg w-full">
@@ -403,19 +384,13 @@ const TaskToday = () => {
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Time
                   </p>
-                  <div className="flex flex-row gap-[5px] items-center">
-                    <Image
-                      src={clockBlue}
-                      alt="clockBlue"
-                      className="object-contain w-4 h-4"
-                    />
+                  <div className="only-time notesFilter-modal">
                     <TimePicker
-                      onChange={handleTimeChange}
-                      value={time}
-                      clockIcon={null} // You can remove the default clock icon
-                      clearIcon={null} // Removes the clear button
+                      onChange={handleTimeChange1}
+                      value={time1}
+                      clearIcon={null}
                       format="hh:mm a"
-                      disableClock={true} // Hides the clock popup
+                      disableClock={false}
                       className="font-MetMedium text-[#6C6B6B] text-xs leading-[150%] cursor-pointer"
                     />
                   </div>
@@ -448,11 +423,39 @@ const TaskToday = () => {
                   </div>
                 </div>
               </div>
+              <div className="w-full max-w-[451px] pr-6 md:border-r-[1px] border-[#dfdfdf]">
+                <p className="text-[#6C6B6B] font-MetRegular text-sm leading-[150%]">
+                  Lorem ipsum dolor sit amet consectetur. Habitasse pretium leo
+                  tincidunt mauris
+                </p>
+                <div className="bg-[#f1f1f1] w-full h-[1px] relative content-[''] my-5"></div>
+                <ul className="flex flex-row gap-2 sm:gap-4 items-center max-sm:flex-wrap max-sm:justify-between">
+                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
+                    <Image src={mark} alt="icons" className="object-contain" />
+                    <p className="text-darkGray font-MetMedium text-xs">
+                      Mark Complete
+                    </p>
+                  </li>
+                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
+                    <Image src={pen} alt="icons" className="object-contain" />
+                    <p className="text-darkGray font-MetMedium text-xs">Edit</p>
+                  </li>
+                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
+                    <Image src={bin} alt="icons" className="object-contain" />
+                    <p className="text-darkGray font-MetMedium text-xs">
+                      Delete
+                    </p>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </Modal>
         {/* ------- add button -------- */}
-        <button onClick={handleOpenModalEdit} className="w-10 h-10 md:w-14 md:h-14 lg:w-[72px] lg:h-[72px] focus:border-none focus:outline-none bg-brightBlue hover:bg-brightBlue/80 rounded-full shadow-[0px_4px_4px_0px_#00000025] flex justify-center items-center absolute z-10 bottom-6 right-6">
+        <button
+          onClick={handleOpenModalEdit}
+          className="w-10 h-10 md:w-14 md:h-14 lg:w-[72px] lg:h-[72px] focus:border-none focus:outline-none bg-brightBlue hover:bg-brightBlue/80 rounded-full shadow-[0px_4px_4px_0px_#00000025] flex justify-center items-center absolute z-10 bottom-6 right-6"
+        >
           <Add />
         </button>
       </div>
@@ -560,3 +563,20 @@ const Add = () => {
 };
 
 export default TaskToday;
+
+{
+  /* <Image
+                      src={clockBlue}
+                      alt="clockBlue"
+                      className="object-contain w-4 h-4"
+                    />
+                    <TimePicker
+                      onChange={handleTimeChange}
+                      value={time}
+                      clockIcon={null} // You can remove the default clock icon
+                      clearIcon={null} // Removes the clear button
+                      format="hh:mm a"
+                      disableClock={true} // Hides the clock popup
+                      className="font-MetMedium text-[#6C6B6B] text-xs leading-[150%] cursor-pointer"
+                    /> */
+}

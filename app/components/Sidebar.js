@@ -12,6 +12,14 @@ import bigUser from "../../public/img/bigUser.png";
 import arrowUp from "../../public/img/arrowUp.svg";
 import calenderLight from "../../public/img/calenderLight.svg";
 
+const tasksItem = [
+  { name: "Today", linkComp: "today" },
+  { name: "Tomorrow", linkComp: "tomorrow" },
+  { name: "This Week", linkComp: "this-week" },
+  { name: "This Month", linkComp: "this-month" },
+  { name: "This Year", linkComp: "this-year" },
+];
+
 const Sidebar = ({
   isSidebarCollapsed,
   toggleSidebar,
@@ -98,19 +106,19 @@ const Sidebar = ({
 
             {isTasksOpen && !effectiveIsSidebarCollapsed && (
               <div className="mt-2 flex flex-col">
-                {["Today", "Tomorrow", "This Week", "This Month", "This Year"].map((task, index) => (
-                  <Link href="/" key={index} className="group p-2 hover:bg-[#2764fe19] hover:rounded-[12px]">
+             {tasksItem.map((task, index) => (
+                  <Link href={task.linkComp} key={index} className="group p-2 hover:bg-[#2764fe19] hover:rounded-[12px]">
                     <div className="flex justify-start items-center gap-[14px]">
                       <div className="w-6 h-6 flex justify-center items-center">
                         <p className="w-2 h-2 rounded-full bg-brightBlue hidden group-hover:block"></p>
                       </div>
                       <p className="font-MetRegular text-darkGray text-sm capitalize hover:text-brightBlue">
-                        {task}
+                        {task.name}
                       </p>
                     </div>
                   </Link>
                 ))}
-                <Link href="/" className="group p-2 hover:bg-[#2764fe19] hover:rounded-[12px]">
+                <Link href="calender" className="group p-2 hover:bg-[#2764fe19] hover:rounded-[12px]">
                   <div className="flex justify-start items-center gap-[14px]">
                     <div className="w-6 h-6 flex justify-center items-center">
                       <Image src={calenderLight} alt="calender" className="object-contain" />
@@ -171,7 +179,7 @@ const Sidebar = ({
             >
               <Image src={mic} alt="mic" className="w-[12px] object-cover" />
               {!effectiveIsSidebarCollapsed && (
-                <span className="transition-all delay-700 ease-in-out">Aiva Assistant</span>
+                <span className="transition-all delay-700 ease-in-out text-white text-xs font-MetMedium">Aiva Assistant</span>
               )}
             </button>
           </Link>

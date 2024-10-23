@@ -1,13 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import TaskToday from "./TaskToday";
-import Sidebar from "../../components/Sidebar";
-import ChatHeader from "../../components/ChatHeader";
+import Sidebar from "../../../components/Sidebar";
+import ChatHeader from "../../../components/ChatHeader";
 
-const TaskMain = () => {
+const TodayMain = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  // State to track active section (Edit Profile or Notification Settings)
   const [activeSection, setActiveSection] = useState("edit-profile");
   const toggleSidebar = () => {
     setIsSidebarCollapsed(!isSidebarCollapsed);
@@ -17,7 +16,10 @@ const TaskMain = () => {
   };
   return (
     <>
-      <div className="relative flex flex-row gap-4 bg-lightGray p-4 h-screen">
+      <TaskToday />
+      
+      {/* <CalenerMain */}
+      {/* <div className="relative flex flex-row gap-4 bg-lightGray p-4 h-screen">
         <>
           <Sidebar
             isSidebarCollapsed={isSidebarCollapsed}
@@ -32,10 +34,11 @@ const TaskMain = () => {
             toggleMobileSidebar={toggleMobileSidebar}
           />
           <TaskToday />
+          <CalenderMain />
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
 
-export default TaskMain;
+export default TodayMain;

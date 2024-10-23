@@ -17,10 +17,14 @@ const NotesFilter = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [time, setTime] = useState("18:00"); 
+  const [time, setTime] = useState("06:00");
 
-  const handleTimeChange = (newTime) => { setTime(newTime); };
-  const handleDateChange = (date) => { setSelectedDate(date); };
+  const handleTimeChange = (newTime) => {
+    setTime(newTime);
+  };
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
@@ -167,7 +171,7 @@ const NotesFilter = () => {
             </div>
           </div>
           {/* ----------- modal header finished ----------- */}
-          <div className="flex flex-col-reverse max-md:gap-4 max-md:justify-end md:flex-row h-full overflow-y-auto">
+          <div className="flex flex-col-reverse max-md:gap-4 max-md:justify-end md:flex-row h-full overflow-y-auto overview">
             <div className="w-full max-w-[451px] pr-6 md:border-r-[1px] border-[#dfdfdf]">
               <p className="text-[#6C6B6B] font-MetRegular text-sm leading-[150%]">
                 Lorem ipsum dolor sit amet consectetur. Tristique egestas hac
@@ -277,19 +281,13 @@ const NotesFilter = () => {
                 <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                   Time
                 </p>
-                <div className="flex flex-row gap-[5px] items-center">
-                  <Image
-                    src={clockBlue} 
-                    alt="clockBlue"
-                    className="object-contain w-4 h-4"
-                  />
+                <div className="only-time notesFilter-modal">
                   <TimePicker
                     onChange={handleTimeChange}
                     value={time}
-                    clockIcon={null} // You can remove the default clock icon
-                    clearIcon={null} // Removes the clear button
+                    clearIcon={null}
                     format="hh:mm a"
-                    disableClock={true} // Hides the clock popup
+                    disableClock={false}
                     className="font-MetMedium text-[#6C6B6B] text-xs leading-[150%] cursor-pointer"
                   />
                 </div>
@@ -317,7 +315,7 @@ const NotesFilter = () => {
       </Modal>
 
       {/* ------ add button ------ */}
-      <div className="w-10 h-10 md:w-14 md:h-14 lg:w-[72px] lg:h-[72px] bg-brightBlue hover:bg-brightBlue/80 rounded-full shadow-[0px_4px_4px_0px_#00000025] flex justify-center items-center absolute z-10 bottom-6 right-6">
+      <div className="w-10 h-10 md:w-14 md:h-14 lg:w-[72px] lg:h-[72px] bg-brightBlue hover:bg-brightBlue/80 rounded-full shadow-[0px_4px_4px_0px_#00000025] flex justify-center items-center absolute z-10 bottom-[6px] right-6">
         <Add />
       </div>
     </div>

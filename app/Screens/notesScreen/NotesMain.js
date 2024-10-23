@@ -15,26 +15,26 @@ const NotesMain = () => {
     setIsMobileOpen(!isMobileOpen);
   };
   return (
-    <>
-      <div className="relative flex flex-row gap-4 bg-lightGray p-4 h-screen">
-        <>
-          <Sidebar
-            isSidebarCollapsed={isSidebarCollapsed}
-            toggleSidebar={toggleSidebar}
-            isMobileOpen={isMobileOpen}
-            toggleMobileSidebar={toggleMobileSidebar}
-          />
-        </>
-        <div className="w-full flex flex-col gap-4">
-          <ChatHeader
-            toggleSidebar={toggleSidebar}
-            toggleMobileSidebar={toggleMobileSidebar}
-          />
-            <NotesFilter />
-        </div>
-      </div>
-    </>
+      <NotesFilter />
   );
 };
 
 export default NotesMain;
+
+  {/* <div className="relative flex flex-row gap-4 bg-lightGray p-4 h-screen">
+    <>
+      <Sidebar
+        isSidebarCollapsed={isSidebarCollapsed}
+        toggleSidebar={toggleSidebar}
+        isMobileOpen={isMobileOpen}
+        toggleMobileSidebar={toggleMobileSidebar}
+      />
+    </>
+    <div className="w-full flex flex-col gap-4">
+      <ChatHeader
+        toggleSidebar={toggleSidebar}
+        toggleMobileSidebar={toggleMobileSidebar}
+      />
+        <NotesFilter />
+    </div>
+  </div> */}

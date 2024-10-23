@@ -2,16 +2,86 @@
 import Image from "next/image";
 import search from "../../public/img/search.svg";
 import sidebar from "../../public/img/sidebar.svg";
+import pending from "../../public/img/pending.svg";
+import calenderBlue from "../../public/img/calenderBlue.svg";
+import { usePathname } from "next/navigation";
 
-const ChatHeader = ({ toggleSidebar,toggleMobileSidebar }) => {
+const ChatHeader = ({ toggleSidebar, toggleMobileSidebar }) => {
+  const pathname = usePathname();
+  console.log(pathname);
   return (
     <>
       <div className="flex max-sm:flex-col max-sm:justify-start max-sm:items-start max-sm:gap-2 flrx-row justify-between items-center p-[12px_16px_12px_16px] lg:p-[12px_16px_12px_24px] bg-white rounded-lg">
         <div className="flex flex-row gap-2">
           {/* onclick on sidebar */}
-        <Image src={sidebar} alt="toggle sidebar" className="w-6 h-6 object-contain hidden lg:block" onClick={toggleSidebar} />
-        <Image src={sidebar} alt="toggle sidebar" className="w-6 h-6 object-contain block lg:hidden" onClick={toggleMobileSidebar} />
-        <h2 className="text-xl font-MetBold text-darkGray ">Chat Assistant</h2>
+          <Image
+            src={sidebar}
+            alt="toggle sidebar"
+            className="w-6 h-6 object-contain hidden lg:block"
+            onClick={toggleSidebar}
+          />
+          <Image
+            src={sidebar}
+            alt="toggle sidebar"
+            className="w-6 h-6 object-contain block lg:hidden"
+            onClick={toggleMobileSidebar}
+          />
+          <div>
+            {pathname === "/chatbot" && (
+              <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                Chat Assistant
+              </h2>
+            )}
+            {pathname === "/settings" && (
+              <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                Settings
+              </h2>
+            )}
+            {pathname === "/notifications" && (
+              <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                Notifications
+              </h2>
+            )}
+            {pathname === "/notes" && (
+              <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                Notes
+              </h2>
+            )}
+            {pathname === "/today" && (
+              <div className="flex gap-3 flex-row">
+                <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                  Today
+                </h2>
+                <div className="bg-[#76767619] rounded-[39px] flex flex-row gap-2 p-[6px_14px] justify-center items-center w-full min-w-[150px] max-w-[150px]">
+                  <Image
+                    src={pending}
+                    alt="pending"
+                    className="w-[16px] h-[16px] object-cover"
+                  />
+                  <p className="text-xs text-[#767676] font-MetSemiBold">
+                    3 Tasks Pending
+                  </p>
+                </div>
+              </div>
+            )}
+            {pathname === "/calender" && (
+              <div className="flex gap-3 flex-row">
+                <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                  Today
+                </h2>
+                <div className="bg-[#EAF0FF] rounded-[39px] flex flex-row gap-2 p-[6px_14px] justify-center items-center w-full min-w-[150px] max-w-[150px]">
+                  <Image
+                    src={calenderBlue}
+                    alt="calenderBlue"
+                    className="w-[16px] h-[16px] object-cover"
+                  />
+                  <p className="text-xs text-brightBlue font-MetSemiBold">
+                    Calendar
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
         <div className="relative w-full max-w-[321px]">
           <input

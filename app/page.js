@@ -1,11 +1,10 @@
-import Image from "next/image";
-import ChatBot from "./chatbot/page";
+
+import Login from "./login/page";
 
 export default function Home() {
   return (
     <>
-      {/* <chatinterface /> */}
-    {/* <ChatBot/> */}
+    <Login />
     </>
   );
 }

@@ -3,9 +3,7 @@ import NotesMain from '../Screens/notesScreen/NotesMain';
 
 const Notes = () => {
   return (
-    <div>
       <NotesMain />
-    </div>
   )
 }
 

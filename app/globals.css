@@ -102,6 +102,52 @@ scrollbar-width: none;  /* Firefox */
 }
 
 
-/* ---------- time-picker css ---------- */
+/* ---------- react-time-picker css ---------- */
 .react-time-picker__wrapper { border: none !important; }
-.react-time-picker__inputGroup input:focus { outline: 0; box-shadow: none !important; } 
+input:focus { outline: 0; box-shadow: none !important; } 
+.react-time-picker__clock-button svg { stroke: #6C6B6B !important; stroke-width: 1.5;}
+
+/* -------- input time icons color ------- */
+.only-time input[type="time"]::-webkit-calendar-picker-indicator{
+  filter: invert(20%) sepia(0%) saturate(50%) hue-rotate(130deg) brightness(140%) contrast(00%);
+  width: 20px;
+  height: 20px;
+}
+/* -
+
+-------- selcet default arrow hide --------- */
+.arrow-hide select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+  }
+
+
+.notesFilter-modal .react-time-picker__wrapper { flex-direction: row-reverse !important; }
+.notesFilter-modal .react-time-picker__clock-button svg {stroke: #2764FE !important; height: 18px; width: 18px; stroke-width: 1;}
+.notesFilter-modal .react-time-picker__button {padding: 0 4px 0 0;}
+
+
+/* -------- calender css  -------- */
+/* #E4EAF9 */
+.fc-scrollgrid  { background-color: white !important; border-radius: 16px; -webkit-border-radius: 16px; -moz-border-radius: 16px; -ms-border-radius: 16px; -o-border-radius: 16px; overflow: hidden; border: none !important; }
+.fc-h-event {background-color: #E4EAF9 !important; border: #E4EAF9;}
+.fc-daygrid-day-number {  font-family: "MetropolisMedium";font-size: 12px; color: var(--darkGray); line-height: 100% !important;}
+.fc-col-header  thead tr {border-bottom: 1px solid #DFDFDF;}
+.fc-col-header-cell .fc-day .fc-day-thu {border-color: #f1f1f1;}
+.fc-col-header-cell-cushion {color:rgba(51, 51, 51, 0.50) !important;
+text-align: center;font-family: "MetropolisMedium"  !important;font-size: 12px !important; padding: 15px 0 !important; line-height: 100% !important; }
+.fc-col-header .fc-theme-standard td, .fc-theme-standard th {border:none !important;}
+.fc-theme-standard td, .fc-theme-standard th {border: 1px solid #f1f1f1;}
+.fc .fc-toolbar.fc-header-toolbar { margin-bottom: 16px !important; }
+.fc-scrollgrid-sync-table tr td {padding: 8px !important;}
+.fc .fc-daygrid-day-number {padding: 0 !important;}
+.fc .fc-daygrid-day-frame {display: flex; flex-direction: column;gap: 6px;}
+.fc-h-event .fc-event-main {display: flex; flex-direction: row; gap: 6px;padding: 8px 12px;align-items: center;}
+.fc-h-event .fc-event-main span {color: var(--darkGray) !important; font-size: 10px !important; font-family: "MetropolisMedium" !important; text-align: center; width: 100%; max-width: 90% !important; overflow: hidden !important; text-overflow: ellipsis !important;}
+.fc-h-event .fc-event-title {width: 100%; max-width: 90% !important; overflow: hidden !important; text-overflow: ellipsis !important;}
+.fc-scrollgrid-sync-table tbody tr .fc-theme-standard td:last-child {border-right:none !important;}
+.fc table {color: var(--darkGray); font-size: 10px !important; font-family: "MetropolisMedium" !important;}
+.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {width: 100%;}
+.fc-list-event-title {display: flex; gap: 4px; align-items: center; }
