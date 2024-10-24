@@ -19,7 +19,7 @@ const NotificationSetting = () => {
   };
 
   return (
-    <div className="p-6 h-full bg-white w-full mx-auto rounded-[16px]">
+    <div className="p-6 h-full bg-white w-full mx-auto rounded-[16px] max-md:overflow-y-scroll">
       {/* Daily Review Section */}
       <div className="w-full max-w-[514px] h-full overflow-y-scroll overview">
         <div className="mb-8 pb-4 border-b-[1px] border-[#eaeaea]">

@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
             </div>
           </div>
         ) : (
-          // Render only the children (login page) when on the login route
+          // route wothout sidebar and header
           <>{children}</>
         )}
       </body>

@@ -7,37 +7,49 @@ import bin from "../../../../public/img/bin.svg";
 import location from "../../../../public/img/location.svg";
 import arrowUp from "../../../../public/img/arrowUp.svg";
 import notesBlue from "../../../../public/img/notesBlue.svg";
-import calenderBlue from "../../../../public/img/calenderBlue.svg";
 import clockBlue from "../../../../public/img/clockBlue.svg";
 import cancleBlue from "../../../../public/img/cancleBlue.svg";
 import trueBlue from "../../../../public/img/trueBlue.svg";
-
+import calenderBlue from "../../../../public/img/calenderBlue.svg";
+import notificationBlue from "../../../../public/img/notificationBlue.svg";
 import { taskData } from "./taskData";
 import TaskComp from "./Task";
 import Modal from "../../../components/Modal";
+// datepicker and timepicker
 import DatePicker from "react-datepicker";
 import TimePicker from "react-time-picker";
-const TaskToday = () => {
+// full calender import
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+
+const TaskMonth = () => {
   const completedTasks = taskData.filter((task) => task.completed);
   const activeTasks = taskData.filter((task) => !task.completed);
+  // simpleModal
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [time, setTime] = useState("18:00");
-  const [time1, setTime1] = useState("18:00");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // Editablemodal
+  const [isDropdownOpen1, setIsDropdownOpen1] = useState(false);
+  const [selectedDate1, setSelectedDate1] = useState(new Date());
+  const [time1, setTime1] = useState("18:00");
   const [isModalOpenEdit, setIsModalOpenEdit] = useState(false);
-
+  // simpleModal
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
+  const handleTimeChange = (newTime) => setTime(newTime);
+  const handleDateChange = (date) => setSelectedDate(date);
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+  // Editablemodal
   const handleOpenModalEdit = () => setIsModalOpenEdit(true);
   const handleCloseModalEdit = () => setIsModalOpenEdit(false);
-  const handleTimeChange = (newTime) => { setTime(newTime); };
-  const handleTimeChange1 = (newTime) => { setTime(newTime); };
-  const handleDateChange = (date) => { setSelectedDate(date); };
-  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+  const handleTimeChange1 = (newTime) => setTime(newTime);
+  const handleDateChange1 = (date) => setSelectedDate1(date);
+  const toggleDropdown1 = () => setIsDropdownOpen1(!isDropdownOpen);
   return (
     <>
-      <div className="overflow-hidden h-full">
+      <div className="overflow-auto md:overflow-hidden h-full overview max-md:pb-5">
         <div className="flex flex-wrap gap-3 mb-4 pt-[2px]">
           <button
             className={`text-xs font-MetSemiBold text-brightBlue bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:!outline-none outline-0 ring-0 ring-none `}
@@ -53,9 +65,10 @@ const TaskToday = () => {
             </button>
           ))}
         </div>
-        <div className="flex flex-col md:flex-row gap-4 h-full">
-          <div className="w-full md:w-[49%] flex flex-col gap-4 overflow-y-scroll overview pb-[200px]">
-            <div className="flex flex-row gap-2">
+        <div className="flex flex-col md:flex-row gap-4 md:h-full">
+          {/* ----------- Tasks ------------ */}
+          <div className="w-full md:w-[49%] flex flex-col gap-4 overflow-y-scroll overview md:pb-[200px]">
+            <div className="flex flex-row items-center gap-2">
               <Image
                 src={notesBlue}
                 alt="notes"
@@ -85,16 +98,49 @@ const TaskToday = () => {
               ))}
             </div>
           </div>
+          {/* ----------- Appointments ------------ */}
           <div className="w-full md:w-[49%]">
             <div className="flex flex-col gap-4">
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row items-center gap-2">
                 <NotiFicationBlue />
                 <p className="text-darkGray text-lg font-MetBold">
                   Appointments (2)
                 </p>
               </div>
+              <div className="relative rounded-2xl bg-white">
+                <FullCalendar
+                  plugins={[dayGridPlugin]}
+                  initialView="dayGridMonth"
+                  events={events}
+                  eventContent={renderEventContent} // Using custom content renderer
+                  editable={true}
+                  selectable={true}
+                  headerToolbar={{
+                    left: "",
+                    center: "",
+                    right: "",
+                  }}
+                  dayHeaderContent={(args) => {
+                    const dayName = args.text; // FullCalendar will provide the day name here
+                    const dateNumber = args.date.getDate(); // Get the numeric date from the args.date object
+
+                    return (
+                      <>
+                        <div className="flex flex-col gap-2 items-start">
+                          <p className="text-xs font-MetBold text-darkGray/50">
+                            {dayName}
+                          </p>
+                          <span className="font-MetBold text-xs text-white bg-brightBlue rounded-full w-6 h-6 flex items-center justify-center">
+                            {dateNumber}
+                          </span>
+                        </div>
+                      </>
+                    );
+                  }}
+                />
+              </div>
             </div>
-            <div className="rounded-2xl"></div>
+            {/* <div className=""></div> */}
           </div>
         </div>
         {/* ------ modal ------- */}
@@ -312,7 +358,7 @@ const TaskToday = () => {
                   <div className="relative">
                     <button
                       type="button"
-                      onClick={toggleDropdown}
+                      onClick={toggleDropdown1}
                       className="flex justify-between bg-slightPurple p-[8px_12px] rounded-lg h-[36px] w-full"
                     >
                       <div className="flex flex-rowv items-center gap-[5px]">
@@ -329,13 +375,13 @@ const TaskToday = () => {
                         src={arrowUp}
                         alt="arrowUp"
                         className={`object-contain transition-transform ${
-                          isDropdownOpen ? "rotate-180" : ""
+                          isDropdownOpen1 ? "rotate-180" : ""
                         }`}
                       />
                     </button>
 
                     {/* Dropdown */}
-                    {isDropdownOpen && (
+                    {isDropdownOpen1 && (
                       <div className="absolute z-[2] mt-1 bg-white border border-[#f1f1f1] rounded-lg shadow-lg w-full">
                         <ul className="p-2">
                           <li className="py-1 text-darkGray text-xs font-MetRegular px-2 hover:bg-gray-200 cursor-pointer">
@@ -364,8 +410,8 @@ const TaskToday = () => {
                       className="object-contain w-4 h-4"
                     />
                     <DatePicker
-                      selected={selectedDate}
-                      onChange={handleDateChange}
+                      selected={selectedDate1}
+                      onChange={handleDateChange1}
                       dateFormat="dd MMM yyyy"
                       customInput={
                         <p className="font-MetMedium text-[#6C6B6B] text-xs leading-[150%] cursor-pointer">
@@ -462,6 +508,39 @@ const TaskToday = () => {
     </>
   );
 };
+
+const renderEventContent = (eventInfo) => {
+  const { icon } = eventInfo.event.extendedProps;
+
+  // Debug the event info to ensure it's correctly being passed
+  console.log("Event Info: ", eventInfo);
+
+  return (
+    <div className="bg-[#E4E1FC] rounded-lg py-2 px-3 flex gap-1 items-center">
+      <Image src={icon} alt="icon" className="w-3 h-3 object-contain" />
+      <span className="text-[10px] font-MetSemiBold text-darkGray w-[90%] overflow-hidden text-ellipsis leading-[100%]">
+        {eventInfo.event.title}
+      </span>
+    </div>
+  );
+};
+
+const events = [
+  {
+    title: "Talk to the lawyer about case",
+    start: "2024-10-24T09:00:00", // Adding specific time for accuracy
+    extendedProps: {
+      icon: notificationBlue, // Ensure the icon path is correct
+    },
+  },
+  {
+    title: "Driving Training",
+    start: "2024-10-24T11:00:00", // Adding specific time for accuracy
+    extendedProps: {
+      icon: notificationBlue, // Ensure the icon path is correct
+    },
+  },
+];
 
 const categories = [
   "Avia",
@@ -562,21 +641,5 @@ const Add = () => {
   );
 };
 
-export default TaskToday;
+export default TaskMonth;
 
-{
-  /* <Image
-                      src={clockBlue}
-                      alt="clockBlue"
-                      className="object-contain w-4 h-4"
-                    />
-                    <TimePicker
-                      onChange={handleTimeChange}
-                      value={time}
-                      clockIcon={null} // You can remove the default clock icon
-                      clearIcon={null} // Removes the clear button
-                      format="hh:mm a"
-                      disableClock={true} // Hides the clock popup
-                      className="font-MetMedium text-[#6C6B6B] text-xs leading-[150%] cursor-pointer"
-                    /> */
-}

@@ -1,10 +1,10 @@
 import React from 'react';
-import TaskMain from '../Screens/taskScreen/todayTaskScreens/TodayMain';
+import TodayMain from '../Screens/taskScreen/todayTaskScreen/TodayMain';
 
 const Today = () => {
   return (
     <>
-     <TaskMain /> 
+     <TodayMain /> 
     </>
   )
 }

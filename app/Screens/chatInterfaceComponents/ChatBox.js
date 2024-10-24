@@ -89,7 +89,7 @@ const ChatBox = () => {
                           >
                             <div className="flex items-center gap-2">
                               <div className="flex items-center justify-center w-4 h-4">
-                              <input id="push-everything" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-brightBlue focus:ring-brightBlue"/>
+                              <input id="push-everything" name="push-notifications" type="radio" className="h-4 w-4 border-gray-300 text-brightBlue focus:ring-brightBlue"/>
                               </div>
                               <p className="text-sm font-MetMedium text-darkGray">
                                 {item.name}

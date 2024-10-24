@@ -5,7 +5,7 @@ import upload from "./../../../public/img/upload.svg";
 import delet from "./../../../public/img/delet.svg";
 const EditProfile = () => {
     return (
-        <div className="flex flex-col w-full bg-white !rounded-[0px_16px_16px_16px] overflow-hidden">
+        <div className="flex flex-col w-full bg-white !rounded-2xl md:!rounded-[0px_16px_16px_16px] overflow-hidden max-md:overflow-y-scroll">
             <div className='p-6 bg-white'>
                 <p className="text-darkGray text-sm font-MetSemiBold leading-[114%] mb-4">Photo</p>
                 <div className="flex flex-row items-center gap-4">
@@ -91,7 +91,7 @@ const EditProfile = () => {
             </div >
             <div className='p-4 bg-white border-t-[1px] border-[#D1D1D1] mt-auto'>
                 <div className="w-full max-w-[278px] sm:ml-auto">
-                    <div className="flex flex-col sm:flex-row justify-between ml-auto">
+                    <div className="flex flex-col sm:flex-row justify-between ml-auto gap-2">
                         <button className="w-[49%] text-sm font-MetMedium border border-brightBlue p-[13px] text-brightBlue rounded-[37px] hover:bg-gray-100">Cancel</button>
                         <button className="w-[49%] text-sm font-MetMedium border border-transparent bg-brightBlue p-[13px] text-white rounded-[37px] hover:bg-brightBlue/80">Save</button>
                     </div>

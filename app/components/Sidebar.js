@@ -11,13 +11,15 @@ import logout from "../../public/img/logout.svg";
 import bigUser from "../../public/img/bigUser.png";
 import arrowUp from "../../public/img/arrowUp.svg";
 import calenderLight from "../../public/img/calenderLight.svg";
+import { usePathname } from "next/navigation";
 
 const tasksItem = [
   { name: "Today", linkComp: "today" },
   { name: "Tomorrow", linkComp: "tomorrow" },
-  { name: "This Week", linkComp: "this-week" },
-  { name: "This Month", linkComp: "this-month" },
-  { name: "This Year", linkComp: "this-year" },
+  { name: "This Week", linkComp: "week" },
+  { name: "This Month", linkComp: "month" },
+  { name: "This Year", linkComp: "year" },
+  { name: "All Tasks", linkComp: "tasklist" },
 ];
 
 const Sidebar = ({
@@ -26,6 +28,8 @@ const Sidebar = ({
   isMobileOpen,
   toggleMobileSidebar,
 }) => {
+  const pathname = usePathname();
+
   const [isTasksOpen, setIsTasksOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -98,7 +102,7 @@ const Sidebar = ({
                   src={arrowUp}
                   alt="arrowUp"
                   className={`object-cover w-5 h-5 transform transition-transform ${
-                    isTasksOpen ? "rotate-180" : ""
+                    isTasksOpen ? "" : "rotate-180"
                   }`}
                 />
               )}
@@ -156,7 +160,7 @@ const Sidebar = ({
                 "" :
                 (item.count ? 
                   (<>
-                    <p className="bg-brightRed w-4 h-4 flex justify-center items-center rounded-full text-[11px] font-MetMedium">
+                    <p className="bg-brightRed w-4 h-4 text-white rounded-full text-[11px] font-MetMedium flex items-center justify-center">
                       {item.count}
                     </p>
                   </>)
@@ -192,8 +196,8 @@ const Sidebar = ({
             <Image src={bigUser} alt="user" className="object-cover w-10 h-10" />
             {!effectiveIsSidebarCollapsed && (
               <div className="flex flex-col">
-                <p className="text-darkGray font-MetSemibold text-sm">Jegan Thirumeni</p>
-                <p className="text-[#6C6B6C] text-xs">Admin</p>
+                <p className="text-darkGray font-MetSemiBold text-sm">Jegan Thirumeni</p>
+                <p className="text-[#6C6B6C] font-MetRegular text-xs">Member Since : Jun 2024</p>
               </div>
             )}
             </div>
