@@ -131,6 +131,23 @@ const ChatHeader = ({ toggleSidebar, toggleMobileSidebar }) => {
                 </div>
               </div>
             )}
+            {pathname === "/tasklist" && (
+              <div className="flex gap-3 flex-row">
+                <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                  All Tasks
+                </h2>
+                <div className="bg-[#76767619] rounded-[39px] flex flex-row gap-2 p-[6px_14px] justify-center items-center w-full min-w-[150px] max-w-[150px]">
+                  <Image
+                    src={pending}
+                    alt="pending"
+                    className="w-[16px] h-[16px] object-cover"
+                  />
+                  <p className="text-xs text-[#767676] font-MetSemiBold">
+                    3 Tasks Pending
+                  </p>
+                </div>
+              </div>
+            )}
             {pathname === "/calender" && (
               <div className="flex gap-3 flex-row">
                 <h2 className="text-xl font-MetBold text-darkGray capitalize">
