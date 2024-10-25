@@ -92,9 +92,7 @@ scrollbar-width: none;  /* Firefox */
 .slick-slider.slick-initialized{opacity:1;}
 .slick-dots {position:relative !important; bottom:0px !important;}
 .loginSlider .slick-dots div {height:6px;width:6px;}
-.loginSlider .slick-dots .slick-active div {
-  width:24px;
-}
+.loginSlider .slick-dots .slick-active div { width:24px; }
 .loginSlider .slick-list {padding-bottom: 35px;}
 
 @media (max-width:1199px) {
@@ -113,9 +111,45 @@ input:focus { outline: 0; box-shadow: none !important; }
   width: 20px;
   height: 20px;
 }
-/* -
 
--------- selcet default arrow hide --------- */
+/* ---------- custom date range picker --------- */
+/* text color  */
+.custom-date-range-picker .react-datepicker__day {margin: 0 !important;height: 36px !important; width: 36px !important; font-family: "MetropolisRegular" !important; color: #293050 !important; font-size: 16px !important; line-height: 125% !important;display: inline-flex !important; justify-content: center !important; align-items: center !important;}
+.custom-date-range-picker .react-datepicker__day--today {color: var(--brightBlue) !important;font-family: "MetropolisRegular" !important;background-color: transparent !important; }
+/* date piscker designing */
+.custom-date-range-picker .react-datepicker {border: none !important;}
+.custom-date-range-picker .react-datepicker__header {background-color:#fff !important; border-bottom: none !important;padding: 0 !important;}
+.custom-date-range-picker .react-datepicker__navigation--previous { right: 80px !important; left: unset !important;}
+.custom-date-range-picker .react-datepicker__navigation--next { right: 40px !important; left: unset !important;}
+.custom-date-range-picker .react-datepicker__header  h2 {text-align: start;padding: 8px 0 8px 9px !important; color: #293050 !important; font-family: "MetropolisSemiBold" !important; font-size: 16px !important; line-height: 125% !important;padding-left: 9px;margin-bottom: 12px !important;}
+.custom-date-range-picker .react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow, .react-datepicker__navigation-icon::before {border-color: #293050 !important; border-width: 2px 2px 0 0 !important; height: 10px !important; width: 10px !important;}
+.custom-date-range-picker .react-datepicker__day--outside-month {color: #181e3051 !important; opacity: 30 !important;}
+.custom-date-range-picker .react-datepicker__month {margin: 0 !important;}
+.custom-date-range-picker .react-datepicker__day-names {margin-bottom:0px !important ; padding: 12px 0 !important;}
+.custom-date-range-picker .react-datepicker__day-name {color: #7B8199 !important; font-family: "MetropolisRegular" !important; font-size: 16px !important; line-height: 125% !important;width: 32px !important;}
+/* --------- day start and end css -------- */
+.custom-date-range-picker .react-datepicker__day--in-range { border-radius: 0 !important; -webkit-border-radius: 0 !important; -moz-border-radius: 0 !important; -ms-border-radius: 0 !important; -o-border-radius: 0 !important; }
+.custom-date-range-picker .react-datepicker__day--range-start { position: relative !important; background-color: var(--brightBlue) !important; color: #fff !important; border-top-left-radius:20px !important;border-bottom-left-radius: 20px !important; }
+.custom-date-range-picker .react-datepicker__day--range-start::after, .react-datepicker__day--range-end::after { position: absolute; height: 28px; width: 28px; background-color: #2764FE; content: ''; top: 50%; left: 50%; bottom: 0; right: 0; z-index: -1; transform: translate(-50%, -50%); border-radius:100% !important ; -webkit-border-radius:100% !important ; -moz-border-radius:100% !important ; -ms-border-radius:100% !important ; -o-border-radius:100% !important ; }
+.custom-date-range-picker .react-datepicker__day--range-end { position: relative !important;   color: #fff !important; border-top-right-radius:20px !important; border-bottom-right-radius: 20px !important;}
+.custom-date-range-picker .react-datepicker__day--range-end::after { position: absolute; height: 28px; width: 28px; background-color: #2764FE; content: ''; top: 50%; left: 50%; bottom: 0; right: 0; z-index: -1; transform: translate(-50%, -50%); border-radius:100% !important ; -webkit-border-radius:100% !important ; -moz-border-radius:100% !important ; -ms-border-radius:100% !important ; -o-border-radius:100% !important ; }
+
+/* ------- backgroun and colors --------------  */
+
+.custom-date-range-picker .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range { background-color:#D9ECFF !important; position: relative !important; border-radius: 0 ; -webkit-border-radius: 0 ; -moz-border-radius: 0 ; -ms-border-radius: 0 ; -o-border-radius: 0 ; }
+.custom-date-range-picker .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {z-index: 2 !important;}
+
+@media (max-width:767px) {
+  .custom-date-range-picker .react-datepicker__day{font-size: 12px !important;}
+  .custom-date-range-picker .react-datepicker__header  h2{font-size: 12px !important;}
+  .custom-date-range-picker .react-datepicker__day-name{font-size: 12px !important;}
+  .custom-date-range-picker .react-datepicker__header  h2 {margin-bottom: 4px !important;}
+  .custom-date-range-picker .react-datepicker__navigation--previous { right: 30px !important; left: unset !important;}
+.custom-date-range-picker .react-datepicker__navigation--next { right: 0px !important; left: unset !important;}
+}
+
+
+/* --------- selcet default arrow hide --------- */
 .arrow-hide select {
     -webkit-appearance: none;
     -moz-appearance: none;

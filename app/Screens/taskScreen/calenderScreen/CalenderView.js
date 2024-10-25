@@ -8,6 +8,7 @@ import listPlugin from "@fullcalendar/list";
 import calenderBlue from "../../../../public/img/calenderBlue.svg";
 import notificationBlue from "../../../../public/img/notificationBlue.svg";
 import arrowUp from "../../../../public/img/arrowUp.svg";
+import CustomBtnRangeCalender from "./CustomBtnRangeCalender";
 // Events data
 const events = [
   {
@@ -42,7 +43,7 @@ const events = [
 
 const CalenderView = () => {
   const calendarRef = useRef(null);
-
+  const [showCustomCalender, setShowCustomCalender] = useState(false);
   // Functions to control the FullCalendar views and navigation
   const goToToday = () => {
     const calendarApi = calendarRef.current.getApi();
@@ -64,12 +65,18 @@ const CalenderView = () => {
     calendarApi.changeView(view);
   };
 
+  const toggleCustomCalendar = () => {
+    setShowCustomCalender((prev) => !prev); // Toggle visibility of the custom calendar
+  };
+
   return (
     <div className="flex flex-col items-center overflow-hidden h-full overflow-y-scroll overview">
       {/* Custom Toolbar */}
       <div className="flex max-md:flex-col max-md:gap-2 max-md:justify-center justify-between items-center w-full mb-2 md:mb-4 relative">
-        <div className="flex max-lg:flex-col max-lg:justify-center lg:flex-row gap-2">
-          <p className="text-darkGray text-base font-MetBold max-lg:text-center">October 2024</p>
+        <div className="flex max-lg:flex-col max-lg:justify-center lg:flex-row gap-2 lg:flex-wrap xl:flex-nowrap">
+          <p className="text-darkGray text-base font-MetBold max-lg:text-center">
+            October 2024
+          </p>
           <div className="flex flex-row gap-2">
             <button
               onClick={goToPrev}
@@ -99,8 +106,8 @@ const CalenderView = () => {
             </button>
           </div>
         </div>
-        <div className="flex max-md:items-center max-md:flex-col flex-row gap-2 md:gap-4">
-          <div className="flex flex-row gap-2 bg-[#EAF0FF] rounded-[80px] overflow-hidden p-1">
+        <div className="flex max-md:items-center max-md:flex-col flex-row gap-2 md:gap-4 lg:flex-wrap xl:flex-nowrap">
+          <div className="flex max-[400px]:flex-wrap flex-row gap-2 bg-[#EAF0FF] rounded-[80px] max-[390px]:p-5 p-1">
             <button
               onClick={() => changeView("timeGridDay")}
               className="p-[8px_20px] relative bg-transparent text-brightBlue hover:text-white text-xs font-MetBold rounded-[80px] hover:bg-brightBlue"
@@ -120,10 +127,27 @@ const CalenderView = () => {
               Month
             </button>
             <div className="relative">
-              {/* open calender */}
-              <button className="p-[8px_20px] relative bg-transparent text-brightBlue hover:text-white text-xs font-MetBold rounded-[80px] hover:bg-brightBlue">
+              <button
+                onClick={toggleCustomCalendar}
+                className={`p-[8px_20px] relative bg-transparent text-brightBlue hover:text-white text-xs font-MetBold rounded-[80px] ${
+                  showCustomCalender && "!text-white !bg-brightBlue"
+                }  hover:bg-brightBlue`}
+              >
                 Custom
               </button>
+              {showCustomCalender && (
+                <div className="absolute w-fit h-fit top-10 right-0 !z-10 max-[364px]:left-0">
+                  <div className="relative w-fit h-fit block">
+                    <CustomBtnRangeCalender />
+                    <button
+                      onClick={toggleCustomCalendar} // Close calendar button
+                      className="absolute top-4 md:top-[26px] right-6 text-brightBlue"
+                    >
+                      <Cancle />
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           <button
@@ -148,7 +172,7 @@ const CalenderView = () => {
         selectable={true}
         events={events}
         eventContent={renderEventContent} // Custom event rendering
-        height="auto" // Adjust height as per the container
+        height='100%' // Adjust height as per the container
       />
     </div>
   );
@@ -168,3 +192,34 @@ const renderEventContent = (eventInfo) => {
 };
 
 export default CalenderView;
+
+const Cancle = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="12"
+      height="14"
+      viewBox="0 0 12 14"
+      fill="none"
+    >
+      <rect
+        x="0.11084"
+        y="1.39185"
+        width="2"
+        height="16"
+        rx="1"
+        transform="rotate(-40 0.11084 1.39185)"
+        fill="black"
+      />
+      <rect
+        x="10.3955"
+        y="0.106262"
+        width="2"
+        height="16"
+        rx="1"
+        transform="rotate(40 10.3955 0.106262)"
+        fill="black"
+      />
+    </svg>
+  );
+};

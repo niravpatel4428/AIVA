@@ -1,6 +1,5 @@
 import React from 'react';
 import CalenderView from './CalenderView';
-
 const CalenderMain = () => {
   return (
     <>
