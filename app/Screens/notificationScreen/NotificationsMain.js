@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import doubleRight from "./../../../public/img/doubleRight.svg";
 
 const NotificationsMain = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -22,7 +21,9 @@ const NotificationsMain = () => {
           </p>
           <p
             className={`w-[49%] capitalize text-center p-[14px_10px] text-brightBlue text-xs font-MetBold cursor-pointer flex items-center justify-center ${
-              activeTab === "unread" ? "bg-brightBlue text-white rounded-[83px]" : ""
+              activeTab === "unread"
+                ? "bg-brightBlue text-white rounded-[83px]"
+                : ""
             }`}
             onClick={() => setActiveTab("unread")}
           >
@@ -65,6 +66,7 @@ const NotificationsMain = () => {
 };
 
 export default NotificationsMain;
+
 const Right = () => {
   return (
     <>

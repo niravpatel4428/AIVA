@@ -12,7 +12,6 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  // State to track active section (Edit Profile or Notification Settings)
   const [activeSection, setActiveSection] = useState("edit-profile");
   const toggleSidebar = () => {
       setIsSidebarCollapsed(!isSidebarCollapsed);

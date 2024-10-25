@@ -1,4 +1,4 @@
-"use client"; // If using Next.js 13 with App Router
+"use client"; 
 
 import React from "react";
 

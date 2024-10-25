@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import mark from "../../../../public/img/mark.svg";
 import pen from "../../../../public/img/pen.svg";
@@ -50,6 +50,8 @@ const TaskWeek = () => {
   const handleTimeChange1 = (newTime) => setTime(newTime);
   const handleDateChange1 = (date) => setSelectedDate1(date);
   const toggleDropdown1 = () => setIsDropdownOpen1(!isDropdownOpen);
+  const [calendarHeight, setCalendarHeight] = useState("auto");
+
   return (
     <>
       <div className="overflow-auto md:overflow-hidden h-full overview max-md:pb-5">
@@ -102,15 +104,15 @@ const TaskWeek = () => {
             </div>
           </div>
           {/* ----------- Appointments ------------ */}
-          <div className="w-full md:w-[49%]">
-            <div className="flex flex-col gap-4">
+          <div className="w-full md:w-[49%] md:h-full">
+            <div className="flex flex-col gap-4 md:h-full">
               <div className="flex flex-row items-center gap-2">
                 <NotiFicationBlue />
                 <p className="text-darkGray text-lg font-MetBold">
                   Appointments (2)
                 </p>
               </div>
-              <div className="relative rounded-2xl bg-white">
+              <div className="relative !rounded-2xl">
                 <FullCalendar
                   plugins={[dayGridPlugin]}
                   initialView="dayGridYear"
@@ -143,7 +145,6 @@ const TaskWeek = () => {
                 />
               </div>
             </div>
-            {/* <div className=""></div> */}
           </div>
         </div>
         {/* ------ modal ------- */}
@@ -531,7 +532,7 @@ const renderEventContent = (eventInfo) => {
 const events = [
   {
     title: "Talk to the lawyer about case",
-    start: "2024-10-24T09:00:00", // Adding specific time for accuracy
+    start: "2024-10-07T09:00:00", // Adding specific time for accuracy
     extendedProps: {
       icon: notificationBlue, // Ensure the icon path is correct
     },
@@ -645,4 +646,3 @@ const Add = () => {
 };
 
 export default TaskWeek;
-

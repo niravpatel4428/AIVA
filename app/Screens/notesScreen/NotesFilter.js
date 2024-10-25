@@ -9,7 +9,6 @@ import more from "./../../../public/img/more.svg";
 import arrowUp from "./../../../public/img/arrowUp.svg";
 import notesBlue from "./../../../public/img/notesBlue.svg";
 import calenderBlue from "./../../../public/img/calenderBlue.svg";
-import clockBlue from "./../../../public/img/clockBlue.svg";
 import DatePicker from "react-datepicker";
 import TimePicker from "react-time-picker";
 const NotesFilter = () => {
@@ -408,6 +407,7 @@ const Left = () => {
     </>
   );
 };
+
 const Right = () => {
   return (
     <>
@@ -426,6 +426,7 @@ const Right = () => {
     </>
   );
 };
+
 const Add = () => {
   return (
     <>

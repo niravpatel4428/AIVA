@@ -143,7 +143,6 @@ const TaskToday = () => {
                 />
               </div>
             </div>
-            {/* <div className=""></div> */}
           </div>
         </div>
         {/* ------ modal ------- */}
@@ -531,7 +530,7 @@ const renderEventContent = (eventInfo) => {
 const events = [
   {
     title: "Talk to the lawyer about case",
-    start: "2024-10-24T09:00:00", // Adding specific time for accuracy
+    start: "2024-10-07T09:00:00", // Adding specific time for accuracy
     extendedProps: {
       icon: notificationBlue, // Ensure the icon path is correct
     },
@@ -645,4 +644,3 @@ const Add = () => {
 };
 
 export default TaskToday;
-

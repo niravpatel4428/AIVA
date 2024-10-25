@@ -15,15 +15,14 @@ const TaskComp = ({ task, onClick }) => {
             <True />
           </div>
         ) : (
-            <input
-              id={`task-${task.id}`}
-              name="notification-method"
-              type="radio"
-              disabled
-              
-              className="h-4 w-4 "
-              readOnly
-            />
+          <input
+            id={`task-${task.id}`}
+            name="notification-method"
+            type="radio"
+            disabled
+            className="h-4 w-4 "
+            readOnly
+          />
         )}
       </div>
       <div className="flex flex-col gap-2">

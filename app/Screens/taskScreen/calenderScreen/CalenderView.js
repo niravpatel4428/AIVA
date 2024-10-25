@@ -39,6 +39,34 @@ const events = [
       icon: calenderBlue,
     },
   },
+  {
+    title: "Attend Jay’s School Event",
+    start: "2024-10-05",
+    extendedProps: {
+      icon: calenderBlue,
+    },
+  },
+  {
+    title: "Talk to the lawyer about case",
+    start: "2024-10-31",
+    extendedProps: {
+      icon: notificationBlue,
+    },
+  },
+  {
+    title: "Clear the laundry",
+    start: "2024-10-28",
+    extendedProps: {
+      icon: calenderBlue,
+    },
+  },
+  {
+    title: "Upload the pending documents",
+    start: "2024-10-26",
+    extendedProps: {
+      icon: calenderBlue,
+    },
+  },
 ];
 
 const CalenderView = () => {
@@ -72,7 +100,7 @@ const CalenderView = () => {
   return (
     <div className="flex flex-col items-center overflow-hidden h-full overflow-y-scroll overview">
       {/* Custom Toolbar */}
-      <div className="flex max-md:flex-col max-md:gap-2 max-md:justify-center justify-between items-center w-full mb-2 md:mb-4 relative">
+      <div className="flex max-md:flex-col max-md:gap-2 max-md:justify-center justify-between items-center w-full relative">
         <div className="flex max-lg:flex-col max-lg:justify-center lg:flex-row gap-2 lg:flex-wrap xl:flex-nowrap">
           <p className="text-darkGray text-base font-MetBold max-lg:text-center">
             October 2024
@@ -171,14 +199,14 @@ const CalenderView = () => {
         editable={true}
         selectable={true}
         events={events}
-        eventContent={renderEventContent} // Custom event rendering
-        height='100%' // Adjust height as per the container
+        eventContent={renderEventContent}
+        height="100%"
       />
     </div>
   );
 };
 
-// Custom event rendering function with Tailwind
+// Custom event rendering function
 const renderEventContent = (eventInfo) => {
   const { icon } = eventInfo.event.extendedProps;
   return (

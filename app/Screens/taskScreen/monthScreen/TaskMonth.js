@@ -7,7 +7,6 @@ import bin from "../../../../public/img/bin.svg";
 import location from "../../../../public/img/location.svg";
 import arrowUp from "../../../../public/img/arrowUp.svg";
 import notesBlue from "../../../../public/img/notesBlue.svg";
-import clockBlue from "../../../../public/img/clockBlue.svg";
 import cancleBlue from "../../../../public/img/cancleBlue.svg";
 import trueBlue from "../../../../public/img/trueBlue.svg";
 import calenderBlue from "../../../../public/img/calenderBlue.svg";
@@ -49,7 +48,7 @@ const TaskMonth = () => {
   const toggleDropdown1 = () => setIsDropdownOpen1(!isDropdownOpen);
   return (
     <>
-      <div className="overflow-auto md:overflow-hidden h-full overview max-md:pb-5">
+      <div className="overflow-auto lg:overflow-hidden h-full overview max-lg:pb-5">
         <div className="flex flex-wrap gap-3 mb-4 pt-[2px]">
           <button
             className={`text-xs font-MetSemiBold text-brightBlue bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:!outline-none outline-0 ring-0 ring-none `}
@@ -65,9 +64,9 @@ const TaskMonth = () => {
             </button>
           ))}
         </div>
-        <div className="flex flex-col md:flex-row gap-4 md:h-full">
+        <div className="flex flex-col lg:flex-row gap-4 lg:h-full">
           {/* ----------- Tasks ------------ */}
-          <div className="w-full md:w-[49%] flex flex-col gap-4 overflow-y-scroll overview md:pb-[200px]">
+          <div className="w-full lg:w-[49%] flex flex-col gap-4 overflow-y-scroll overview lg:pb-[200px]">
             <div className="flex flex-row items-center gap-2">
               <Image
                 src={notesBlue}
@@ -99,15 +98,15 @@ const TaskMonth = () => {
             </div>
           </div>
           {/* ----------- Appointments ------------ */}
-          <div className="w-full md:w-[49%]">
-            <div className="flex flex-col gap-4">
+          <div className="w-full lg:w-[49%]">
+            <div className="flex flex-col gap-4 md:h-full">
               <div className="flex flex-row items-center gap-2">
                 <NotiFicationBlue />
                 <p className="text-darkGray text-lg font-MetBold">
                   Appointments (2)
                 </p>
               </div>
-              <div className="relative rounded-2xl bg-white">
+              <div className="relative rounded-2xl ">
                 <FullCalendar
                   plugins={[dayGridPlugin]}
                   initialView="dayGridMonth"
@@ -137,16 +136,18 @@ const TaskMonth = () => {
                       </>
                     );
                   }}
+                  aspectRatio='1'
+                  contentHeight="auto"
+                  height='auto'
                 />
               </div>
             </div>
-            {/* <div className=""></div> */}
           </div>
         </div>
         {/* ------ modal ------- */}
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-          <div className="md:flex md:flex-col h-full">
-            <div className="flex justify-between w-full max-w-[636px] mb-3 sm:mb-7 max-md:pr-10 max-sm:items-start">
+          <div className="lg:flex lg:flex-col h-full">
+            <div className="flex justify-between w-full max-w-[636px] mb-3 sm:mb-7 max-lg:pr-10 max-sm:items-start">
               <h2 className="text-darkGray text-xl font-MetBold">
                 Attend Jay’s School Event
               </h2>
@@ -161,10 +162,10 @@ const TaskMonth = () => {
               </div>
             </div>
             {/* ----------- modal header finished ----------- */}
-            <div className="md:flex max-md:gap-4 max-md:justify-end md:flex-row-reverse h-full overflow-y-scroll overview max-md:pb-52">
-              <div className="md:h-full md:pl-4 max-md:flex max-sm:flex-col max-sm:flex-nowrap max-md:flex-wrap max-md:justify-between w-full  md:max-w-[205px] ">
+            <div className="lg:flex max-lg:gap-4 max-lg:justify-end lg:flex-row-reverse h-full overflow-y-scroll overview max-lg:pb-52">
+              <div className="lg:h-full lg:pl-4 max-lg:flex max-sm:flex-col max-sm:flex-nowrap max-lg:flex-wrap max-lg:justify-between w-full  lg:max-w-[205px] ">
                 {/* ------ type date ------ */}
-                <div className="py-2 sm:pb-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                <div className="py-2 sm:pb-4 lg:border-b-[1px] border-[#f1f1f1] max-lg:basis-[48%] max-lg:flex max-lg:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Type
                   </p>
@@ -212,7 +213,7 @@ const TaskMonth = () => {
                   </div>
                 </div>
                 {/* ------ due date ------ */}
-                <div className="py-2 sm:pb-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                <div className="py-2 sm:pb-4 lg:border-b-[1px] border-[#f1f1f1] max-lg:basis-[48%] max-lg:flex max-lg:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Due Date
                   </p>
@@ -239,7 +240,7 @@ const TaskMonth = () => {
                   </div>
                 </div>
                 {/* --------- time -------- */}
-                <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                <div className="py-2 sm:py-4 lg:border-b-[1px] border-[#f1f1f1] max-lg:basis-[48%] max-lg:flex max-lg:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Time
                   </p>
@@ -255,7 +256,7 @@ const TaskMonth = () => {
                   </div>
                 </div>
                 {/* -------- projects ------- */}
-                <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                <div className="py-2 sm:py-4 lg:border-b-[1px] border-[#f1f1f1] max-lg:basis-[48%] max-lg:flex max-lg:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Location
                   </p>
@@ -271,7 +272,7 @@ const TaskMonth = () => {
                   </div>
                 </div>
                 {/* -------- projects ------- */}
-                <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                <div className="py-2 sm:py-4 lg:border-b-[1px] border-[#f1f1f1] max-lg:basis-[48%] max-lg:flex max-lg:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Projects
                   </p>
@@ -282,7 +283,7 @@ const TaskMonth = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-full max-w-[451px] pr-6 md:border-r-[1px] border-[#dfdfdf]">
+              <div className="w-full max-w-[451px] pr-6 lg:border-r-[1px] border-[#dfdfdf]">
                 <p className="text-[#6C6B6B] font-MetRegular text-sm leading-[150%]">
                   Lorem ipsum dolor sit amet consectetur. Habitasse pretium leo
                   tincidunt mauris
@@ -313,7 +314,7 @@ const TaskMonth = () => {
         {/* ------ edit modal ------- */}
         <Modal isOpen={isModalOpenEdit} onClose={handleCloseModalEdit}>
           <div className="flex flex-col h-full">
-            <div className="flex justify-between w-full max-w-[636px] mb-3 sm:mb-7 max-md:pr-10 items-start max-md:flex-col max-md:gap-5">
+            <div className="flex justify-between w-full max-w-[636px] mb-3 sm:mb-7 max-lg:pr-10 items-start max-lg:flex-col max-lg:gap-5">
               <div className="reltive flex flex-col gap-2 w-full max-w-[400px]">
                 <input
                   type="text"
@@ -344,14 +345,14 @@ const TaskMonth = () => {
                 <button className="bg-[#EAF0FF] w-6 h-6 rounded-full flex justify-center items-center border-none focus:border-none focus:outline-none opacity-40 hover:opacity-100">
                   <Right />
                 </button>
-                <div className="w-[1px] h-4 bg-[#dfdfdf] mx-[11px] max-md:hidden"></div>
+                <div className="w-[1px] h-4 bg-[#dfdfdf] mx-[11px] max-lg:hidden"></div>
               </div>
             </div>
             {/* ----------- modal header finished ----------- */}
-            <div className="md:flex max-md:gap-4 max-md:justify-end md:flex-row-reverse h-full overflow-y-scroll overview max-md:pb-52">
-              <div className="md:h-full md:pl-4 max-md:flex max-sm:flex-col max-sm:flex-nowrap max-md:flex-wrap max-md:justify-between w-full  md:max-w-[205px] ">
+            <div className="lg:flex max-lg:gap-4 max-lg:justify-end lg:flex-row-reverse h-full overflow-y-scroll overview max-lg:pb-52">
+              <div className="lg:h-full lg:pl-4 max-lg:flex max-sm:flex-col max-sm:flex-nowrap max-lg:flex-wrap max-lg:justify-between w-full  lg:max-w-[205px] ">
                 {/* ------ type date ------ */}
-                <div className="py-2 sm:pb-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                <div className="py-2 sm:pb-4 lg:border-b-[1px] border-[#f1f1f1] max-lg:basis-[48%] max-lg:flex max-lg:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Type
                   </p>
@@ -399,7 +400,7 @@ const TaskMonth = () => {
                   </div>
                 </div>
                 {/* ------ due date ------ */}
-                <div className="py-2 sm:pb-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                <div className="py-2 sm:pb-4 lg:border-b-[1px] border-[#f1f1f1] max-lg:basis-[48%] max-lg:flex max-lg:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Due Date
                   </p>
@@ -426,7 +427,7 @@ const TaskMonth = () => {
                   </div>
                 </div>
                 {/* --------- time -------- */}
-                <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                <div className="py-2 sm:py-4 lg:border-b-[1px] border-[#f1f1f1] max-lg:basis-[48%] max-lg:flex max-lg:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Time
                   </p>
@@ -442,7 +443,7 @@ const TaskMonth = () => {
                   </div>
                 </div>
                 {/* -------- projects ------- */}
-                <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                <div className="py-2 sm:py-4 lg:border-b-[1px] border-[#f1f1f1] max-lg:basis-[48%] max-lg:flex max-lg:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Location
                   </p>
@@ -458,7 +459,7 @@ const TaskMonth = () => {
                   </div>
                 </div>
                 {/* -------- projects ------- */}
-                <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                <div className="py-2 sm:py-4 lg:border-b-[1px] border-[#f1f1f1] max-lg:basis-[48%] max-lg:flex max-lg:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Projects
                   </p>
@@ -469,7 +470,7 @@ const TaskMonth = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-full max-w-[451px] pr-6 md:border-r-[1px] border-[#dfdfdf]">
+              <div className="w-full max-w-[451px] pr-6 lg:border-r-[1px] border-[#dfdfdf]">
                 <p className="text-[#6C6B6B] font-MetRegular text-sm leading-[150%]">
                   Lorem ipsum dolor sit amet consectetur. Habitasse pretium leo
                   tincidunt mauris
@@ -512,9 +513,6 @@ const TaskMonth = () => {
 const renderEventContent = (eventInfo) => {
   const { icon } = eventInfo.event.extendedProps;
 
-  // Debug the event info to ensure it's correctly being passed
-  console.log("Event Info: ", eventInfo);
-
   return (
     <div className="bg-[#E4E1FC] rounded-lg py-2 px-3 flex gap-1 items-center">
       <Image src={icon} alt="icon" className="w-3 h-3 object-contain" />
@@ -528,16 +526,16 @@ const renderEventContent = (eventInfo) => {
 const events = [
   {
     title: "Talk to the lawyer about case",
-    start: "2024-10-24T09:00:00", // Adding specific time for accuracy
+    start: "2024-10-07T09:00:00",
     extendedProps: {
-      icon: notificationBlue, // Ensure the icon path is correct
+      icon: notificationBlue,
     },
   },
   {
     title: "Driving Training",
-    start: "2024-10-24T11:00:00", // Adding specific time for accuracy
+    start: "2024-10-24T11:00:00",
     extendedProps: {
-      icon: notificationBlue, // Ensure the icon path is correct
+      icon: notificationBlue,
     },
   },
 ];
@@ -642,4 +640,3 @@ const Add = () => {
 };
 
 export default TaskMonth;
-

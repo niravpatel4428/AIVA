@@ -1,11 +1,9 @@
 "use client";
-import React, { useState } from 'react';
-import SettingMain from '../Screens/SettingsScreen/SettingMain';
+import React, { useState } from "react";
+import SettingMain from "../Screens/SettingsScreen/SettingMain";
 
 const page = () => {
-    return (
-        <SettingMain />
-    )
-}
+  return <SettingMain />;
+};
 
 export default page;

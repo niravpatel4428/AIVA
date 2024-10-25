@@ -14,12 +14,12 @@ import calenderLight from "../../public/img/calenderLight.svg";
 import { usePathname } from "next/navigation";
 
 const tasksItem = [
-  { name: "Today", linkComp: "today" },
-  { name: "Tomorrow", linkComp: "tomorrow" },
-  { name: "This Week", linkComp: "week" },
-  { name: "This Month", linkComp: "month" },
-  { name: "This Year", linkComp: "year" },
-  { name: "All Tasks", linkComp: "tasklist" },
+  { name: "Today", linkComp: "/today" },
+  { name: "Tomorrow", linkComp: "/tomorrow" },
+  { name: "This Week", linkComp: "/week" },
+  { name: "This Month", linkComp: "/month" },
+  { name: "This Year", linkComp: "/year" },
+  { name: "All Tasks", linkComp: "/tasklist" },
 ];
 
 const Sidebar = ({
@@ -46,30 +46,38 @@ const Sidebar = ({
 
   return (
     <div
-     
       className={`absolute top-0 bottom-0 left-0 max-lg:p-4 h-full lg:relative ${
-        effectiveIsSidebarCollapsed ? "lg:w-[60px]" : "lg:w-[282px] lg:transition-all lg:duration-300 lg:ease-linear"
+        effectiveIsSidebarCollapsed
+          ? "lg:w-[60px]"
+          : "lg:w-[282px] lg:transition-all lg:duration-300 lg:ease-linear"
       }  ${
-        isMobileOpen ? "max-lg:!w-full" : "max-lg:-left-full max-lg:w-[0px]"}`}
+        isMobileOpen ? "max-lg:!w-full" : "max-lg:-left-full max-lg:w-[0px]"
+      }`}
     >
-      <div className={`${
-        isMobileOpen
-          ? "max-lg:!fixed max-lg:bg-[#0000001a] max-lg:inset-0 max-lg:z-30 max-lg:p-4 max-lg:!left-0"
-          : "max-lg:-left-full"
-      }`}  
-      onClick={() => {
-        isDesktop ? "": toggleMobileSidebar();
-      }}></div>
+      <div
+        className={`${
+          isMobileOpen
+            ? "max-lg:!fixed max-lg:bg-[#0000001a] max-lg:inset-0 max-lg:z-30 max-lg:p-4 max-lg:!left-0"
+            : "max-lg:-left-full"
+        }`}
+        onClick={() => {
+          isDesktop ? "" : toggleMobileSidebar();
+        }}
+      ></div>
       <div
         className={`relative z-50  flex flex-col justify-between h-[100%] bg-white rounded-[16px] transition-all duration-300 ease-linear py-4 px-2 
           ${effectiveIsSidebarCollapsed ? "w-[60px]" : "w-[282px]"} 
-          ${isMobileOpen ? "max-lg:w-[282px]" : "max-lg:-left-full"
-        }`}
+          ${isMobileOpen ? "max-lg:w-[282px]" : "max-lg:-left-full"}`}
       >
         {/* Sidebar Logo */}
         <div className="mb-10">
           <div className="inline-flex w-full justify-center">
-            <Link href="/" className={`w-fit mx-auto ${effectiveIsSidebarCollapsed ? "h-[56px]" : ""}`}>
+            <Link
+              href="/"
+              className={`w-fit mx-auto ${
+                effectiveIsSidebarCollapsed ? "h-[56px]" : ""
+              }`}
+            >
               <div
                 className={`w-[56px] h-[56px] bg-brightBlue rounded-[100%] flex justify-center items-center ${
                   effectiveIsSidebarCollapsed ? "!w-8 !h-8" : ""
@@ -78,7 +86,9 @@ const Sidebar = ({
                 <Image
                   src={mic}
                   alt="mic"
-                  className={`object-contain h-8 w-8 ${effectiveIsSidebarCollapsed ? "!w-5 !h-5" : ""}`}
+                  className={`object-contain h-8 w-8 ${
+                    effectiveIsSidebarCollapsed ? "!w-5 !h-5" : ""
+                  }`}
                 />
               </div>
             </Link>
@@ -86,7 +96,11 @@ const Sidebar = ({
         </div>
 
         {/* Sidebar Links */}
-        <div className={`flex flex-col ${effectiveIsSidebarCollapsed ? "items-center" : ""}`}>
+        <div
+          className={`flex flex-col ${
+            effectiveIsSidebarCollapsed ? "items-center" : ""
+          }`}
+        >
           {/* Tasks Section */}
           <div className="flex flex-col py-2">
             <div
@@ -94,8 +108,16 @@ const Sidebar = ({
               className={`flex justify-between items-center cursor-pointer px-2`}
             >
               <div className="flex items-center gap-[14px]">
-                <Image src={tasks} alt="tasks" className="object-cover w-6 h-6" />
-                {!effectiveIsSidebarCollapsed && <p className="font-MetRegular text-darkGray text-sm capitalize">Tasks</p>}
+                <Image
+                  src={tasks}
+                  alt="tasks"
+                  className="object-cover w-6 h-6"
+                />
+                {!effectiveIsSidebarCollapsed && (
+                  <p className="font-MetRegular text-darkGray text-sm capitalize">
+                    Tasks
+                  </p>
+                )}
               </div>
               {!effectiveIsSidebarCollapsed && (
                 <Image
@@ -110,11 +132,23 @@ const Sidebar = ({
 
             {isTasksOpen && !effectiveIsSidebarCollapsed && (
               <div className="mt-2 flex flex-col">
-             {tasksItem.map((task, index) => (
-                  <Link href={task.linkComp} key={index} className="group p-2 hover:bg-[#2764fe19] hover:rounded-[12px]">
+                {tasksItem.map((task, index) => (
+                  <Link
+                    href={task.linkComp}
+                    key={index}
+                    className={`${
+                      pathname === task.linkComp
+                        ? "!bg-[#EAF0FF] rounded-xl"
+                        : ""
+                    } group p-2 hover:bg-[#2764fe19] hover:rounded-[12px]`}
+                  >
                     <div className="flex justify-start items-center gap-[14px]">
                       <div className="w-6 h-6 flex justify-center items-center">
-                        <p className="w-2 h-2 rounded-full bg-brightBlue hidden group-hover:block"></p>
+                        <p
+                          className={`w-2 h-2 rounded-full bg-brightBlue hidden ${
+                            pathname === task.linkComp ? "!block" : ""
+                          }`}
+                        ></p>
                       </div>
                       <p className="font-MetRegular text-darkGray text-sm capitalize hover:text-brightBlue">
                         {task.name}
@@ -122,10 +156,19 @@ const Sidebar = ({
                     </div>
                   </Link>
                 ))}
-                <Link href="calender" className="group p-2 hover:bg-[#2764fe19] hover:rounded-[12px]">
+                <Link
+                  href="calender"
+                  className={`group p-2 hover:bg-[#2764fe19] hover:rounded-[12px] ${
+                    pathname === "/calender" ? "!bg-[#EAF0FF] rounded-xl" : ""
+                  }`}
+                >
                   <div className="flex justify-start items-center gap-[14px]">
                     <div className="w-6 h-6 flex justify-center items-center">
-                      <Image src={calenderLight} alt="calender" className="object-contain" />
+                      <Image
+                        src={calenderLight}
+                        alt="calender"
+                        className="object-contain"
+                      />
                     </div>
                     <p className="font-MetRegular text-darkGray text-sm capitalize hover:text-brightBlue">
                       Calendar View
@@ -138,42 +181,59 @@ const Sidebar = ({
 
           {/* Other Sidebar Items */}
           {[
-            { icon: notes, label: "Notes",  count: 0,links: "notes" },
-            { icon: notification, label: "Notifications", count: 7,links: "notifications" },
-            { icon: setting, label: "Settings",  count: 0,links: "settings" },
+            { icon: notes, label: "Notes", count: 0, links: "/notes" },
+            {
+              icon: notification,
+              label: "Notifications",
+              count: 7,
+              links: "/notifications",
+            },
+            { icon: setting, label: "Settings", count: 0, links: "/settings" },
           ].map((item, idx) => (
             <Link
               href={item.links}
               key={idx}
-              className={`task-icon hover:bg-[#2764fe19] hover:rounded-[12px] p-2 ${
+              className={`${
+                pathname === item.links ? "!bg-[#EAF0FF] rounded-xl" : ""
+              } task-icon hover:bg-[#2764fe19] hover:rounded-[12px] p-2 ${
                 effectiveIsSidebarCollapsed ? "px-0" : ""
               }`}
             >
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-[14px]">
-                  <Image src={item.icon} alt={item.label} className="object-cover w-6 h-6" />
+                  <Image
+                    src={item.icon}
+                    alt={item.label}
+                    className="object-cover w-6 h-6"
+                  />
                   {!effectiveIsSidebarCollapsed && (
-                    <p className="font-MetRegular text-darkGray text-sm capitalize">{item.label}</p>
+                    <p className="font-MetRegular text-darkGray text-sm capitalize">
+                      {item.label}
+                    </p>
                   )}
                 </div>
-                {effectiveIsSidebarCollapsed ? 
-                "" :
-                (item.count ? 
-                  (<>
+                {effectiveIsSidebarCollapsed ? (
+                  ""
+                ) : item.count ? (
+                  <>
                     <p className="bg-brightRed w-4 h-4 text-white rounded-full text-[11px] font-MetMedium flex items-center justify-center">
                       {item.count}
                     </p>
-                  </>)
-                   :
-                    ("")
-                    ) }
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
             </Link>
           ))}
         </div>
 
         {/* Bottom Section */}
-        <div className={`flex flex-col gap-8 mt-auto ${effectiveIsSidebarCollapsed ? "items-center" : ""}`}>
+        <div
+          className={`flex flex-col gap-8 mt-auto ${
+            effectiveIsSidebarCollapsed ? "items-center" : ""
+          }`}
+        >
           {/* Assistant */}
           <Link href="/chatbot">
             <button
@@ -183,25 +243,39 @@ const Sidebar = ({
             >
               <Image src={mic} alt="mic" className="w-[12px] object-cover" />
               {!effectiveIsSidebarCollapsed && (
-                <span className="transition-all delay-700 ease-in-out text-white text-xs font-MetMedium">Aiva Assistant</span>
+                <span className="transition-all delay-700 ease-in-out text-white text-xs font-MetMedium">
+                  Aiva Assistant
+                </span>
               )}
             </button>
           </Link>
 
           {/* User Profile */}
-          <div className={`flex items-center  ${
-              effectiveIsSidebarCollapsed ? "!justify-center" : "justify-between"
-            }`}>
+          <div
+            className={`flex items-center  ${
+              effectiveIsSidebarCollapsed
+                ? "!justify-center"
+                : "justify-between"
+            }`}
+          >
             <div className="flex flex-row gap-2">
-            <Image src={bigUser} alt="user" className="object-cover w-10 h-10" />
-            {!effectiveIsSidebarCollapsed && (
-              <div className="flex flex-col">
-                <p className="text-darkGray font-MetSemiBold text-sm">Jegan Thirumeni</p>
-                <p className="text-[#6C6B6C] font-MetRegular text-xs">Member Since : Jun 2024</p>
-              </div>
-            )}
+              <Image
+                src={bigUser}
+                alt="user"
+                className="object-cover w-10 h-10"
+              />
+              {!effectiveIsSidebarCollapsed && (
+                <div className="flex flex-col">
+                  <p className="text-darkGray font-MetSemiBold text-sm">
+                    Jegan Thirumeni
+                  </p>
+                  <p className="text-[#6C6B6C] font-MetRegular text-xs">
+                    Member Since : Jun 2024
+                  </p>
+                </div>
+              )}
             </div>
-          {!effectiveIsSidebarCollapsed && (
+            {!effectiveIsSidebarCollapsed && (
               <div className="w-6 h-6">
                 <Image
                   src={logout}

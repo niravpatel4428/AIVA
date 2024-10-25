@@ -1,12 +1,12 @@
-import React from 'react';
-import TodayMain from '../Screens/taskScreen/todayTaskScreen/TodayMain';
+import React from "react";
+import TodayMain from "../Screens/taskScreen/todayTaskScreen/TodayMain";
 
 const Today = () => {
   return (
     <>
-     <TodayMain /> 
+      <TodayMain />
     </>
-  )
-}
+  );
+};
 
 export default Today;

@@ -10,7 +10,6 @@ import mic1 from "../../../public/img/mic.svg";
 const ChatBox = () => {
   const [tasks, setTasks] = useState([]);
 
-  // Fetch tasks data from tasks.json
   useEffect(() => {
     const fetchTasks = async () => {
       const res = await fetch("/data/tasks.json");
@@ -89,21 +88,26 @@ const ChatBox = () => {
                           >
                             <div className="flex items-center gap-2">
                               <div className="flex items-center justify-center w-4 h-4">
-                              <input id="push-everything" name="push-notifications" type="radio" className="h-4 w-4 border-gray-300 text-brightBlue focus:ring-brightBlue"/>
+                                <input
+                                  id="push-everything"
+                                  name="push-notifications"
+                                  type="radio"
+                                  className="h-4 w-4 border-gray-300 text-brightBlue focus:ring-brightBlue"
+                                />
                               </div>
                               <p className="text-sm font-MetMedium text-darkGray">
                                 {item.name}
                               </p>
                             </div>
                             <div className="bg-lightBlue p-2 rounded-[8px]">
-                            <Image
-                              src={item.icon}
-                              alt="task icon"
-                              width="16"
-                              height="16"
-                              className="object-cover w-4 h-4"
-                            />
-                               </div>
+                              <Image
+                                src={item.icon}
+                                alt="task icon"
+                                width="16"
+                                height="16"
+                                className="object-cover w-4 h-4"
+                              />
+                            </div>
                           </li>
                         ))}
                       </ul>
