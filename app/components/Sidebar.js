@@ -218,7 +218,7 @@ const Sidebar = ({
             <Link
               href={item.links}
               key={idx}
-              className={`${
+              className={`flex justify-between items-center w-full ${
                 pathname === item.links ? "!bg-[#EAF0FF] rounded-xl" : ""
               } task-icon hover:bg-[#2764fe19] hover:rounded-[12px] p-2 ${
                 effectiveIsSidebarCollapsed ? "px-0" : ""
@@ -227,7 +227,9 @@ const Sidebar = ({
                 isDesktop ? "" : toggleMobileSidebar();
               }}
             >
-              <div className="flex justify-between items-center">
+              <div className={`flex justify-between items-center w-full ${
+                effectiveIsSidebarCollapsed ? "!justify-center" : ""
+              }`}>
                 <div className="flex items-center gap-[14px]">
                   <Image
                     src={pathname === item.links ? item.activeIcon : item.icon}
