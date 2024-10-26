@@ -12,6 +12,12 @@ import bigUser from "../../public/img/bigUser.png";
 import arrowUp from "../../public/img/arrowUp.svg";
 import calenderLight from "../../public/img/calenderLight.svg";
 import { usePathname } from "next/navigation";
+import notesBlue from "../../public/img/notesBlue.svg";
+import notesBlueFill from "../../public/img/notesBlueFill.svg";
+import settingBlue from "../../public/img/settingBlue.svg";
+import tasksBlue from "../../public/img/tasksBlue.svg";
+import tasksBlueFill from "../../public/img/tasksBlueFill.svg";
+import notificationBlue from "../../public/img/notificationBlue.svg";
 
 const tasksItem = [
   { name: "Today", linkComp: "/today" },
@@ -109,7 +115,7 @@ const Sidebar = ({
             >
               <div className="flex items-center gap-[14px]">
                 <Image
-                  src={tasks}
+                  src={isTasksOpen ? tasksBlueFill : tasks}
                   alt="tasks"
                   className="object-cover w-6 h-6"
                 />
@@ -181,14 +187,27 @@ const Sidebar = ({
 
           {/* Other Sidebar Items */}
           {[
-            { icon: notes, label: "Notes", count: 0, links: "/notes" },
+            {
+              icon: notes,
+              label: "Notes",
+              count: 0,
+              links: "/notes",
+              activeIcon: notesBlueFill,
+            },
             {
               icon: notification,
               label: "Notifications",
               count: 7,
               links: "/notifications",
+              activeIcon: notificationBlue,
             },
-            { icon: setting, label: "Settings", count: 0, links: "/settings" },
+            {
+              icon: setting,
+              label: "Settings",
+              count: 0,
+              links: "/settings",
+              activeIcon: settingBlue,
+            },
           ].map((item, idx) => (
             <Link
               href={item.links}
@@ -202,8 +221,10 @@ const Sidebar = ({
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-[14px]">
                   <Image
-                    src={item.icon}
+                    src={pathname === item.links ? item.activeIcon : item.icon}
                     alt={item.label}
+                    width="24"
+                    height="24"
                     className="object-cover w-6 h-6"
                   />
                   {!effectiveIsSidebarCollapsed && (
