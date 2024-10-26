@@ -32,8 +32,8 @@ const NotificationsMain = () => {
               {notifications.filter((n) => n.unread).length}
             </span>
           </p>
-        </div>
-        <p className="font-MetBold text-xs text-brightBlue flex flex-row gap-2 items-center">
+        </div> 
+        <p className="font-MetBold text-xs text-brightBlue flex flex-row gap-2 items-center max-sm:mt-2">
           {" "}
           <Right /> Mark all as read
         </p>

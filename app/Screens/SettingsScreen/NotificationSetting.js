@@ -41,7 +41,7 @@ const NotificationSetting = () => {
                 Morning
               </h4>
               <p className="text-darkGray leading-[114%] text-sm font-MetRegular mb-2">
-                To plan the day
+                To Plan the day
               </p>
               <div className="relative only-time w-full bg-white border border-[#DFDFDF] rounded-[12px] p-[14px_10px_14px_15px] mb-4">
                 <TimePicker

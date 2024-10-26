@@ -85,11 +85,11 @@ const TaskWeek = () => {
 
                     return (
                       <>
-                        <div className="flex flex-col gap-2 items-start">
-                          <p className="text-xs font-MetBold text-darkGray/50">
+                        <div className="flex flex-col gap-2 justify-between">
+                          <p className="text-xs text-center font-MetBold text-darkGray/50">
                             {dayName}
                           </p>
-                          <span className="font-MetBold text-xs text-white bg-brightBlue rounded-full w-6 h-6 flex items-center justify-center">
+                          <span className="font-MetBold text-xs text-white bg-brightBlue rounded-full w-6 h-6 flex items-center justify-center mx-auto">
                             {dateNumber}
                           </span>
                         </div>

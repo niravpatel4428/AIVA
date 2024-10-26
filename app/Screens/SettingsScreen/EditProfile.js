@@ -6,7 +6,7 @@ import delet from "./../../../public/img/delet.svg";
 const EditProfile = () => {
   return (
     <div className="flex flex-col w-full bg-white !rounded-2xl md:!rounded-[0px_16px_16px_16px] overflow-hidden max-md:overflow-y-scroll">
-      <div className="p-6 bg-white">
+      <div className="max-[400px]:p-3 p-6 bg-white">
         <p className="text-darkGray text-sm font-MetSemiBold leading-[114%] mb-4">
           Photo
         </p>
@@ -46,7 +46,7 @@ const EditProfile = () => {
               type="name"
               id="name"
               name="name"
-              className="w-full text-darkGray placeholder:text-[#3333337f] bg-white border border-[#dfdfdf] rounded-[12px] text-sm font-MetMedium p-[17px] focus:ring-none focus:outline-none"
+              className="w-full text-darkGray placeholder:text-[#3333337f] bg-white border border-[#dfdfdf] rounded-[12px] text-sm font-MetMedium p-[17px] focus:ring-none focus:outline-none leading-none"
               placeholder="Enter Your Name"
             />
           </div>
@@ -66,9 +66,9 @@ const EditProfile = () => {
                     name="code"
                     value="+91"
                     readOnly
-                    className="w-[65px] text-darkGray bg-white border border-[#dfdfdf] rounded-[12px] text-sm font-MetMedium p-[17px_13px] focus:ring-none focus:outline-none"
+                    className="w-[65px] text-darkGray bg-white border border-[#dfdfdf] rounded-[12px] text-sm font-MetMedium p-[17px_13px] focus:ring-none focus:outline-none leading-none"
                   />
-                  <div className="absolute right-2 top-[50%] transform -translate-y-1/2 w-[10px] h-[5px]">
+                  <div className="absolute right-[12px] top-[50%] transform -translate-y-1/2 w-[10px] h-[5px]">
                     <ArrowDown />
                   </div>
                 </div>
@@ -77,7 +77,7 @@ const EditProfile = () => {
                 type="number"
                 id="number"
                 name="number"
-                className="w-full text-darkGray placeholder:text-[#3333337f] bg-white border border-[#dfdfdf] rounded-[12px] text-sm font-MetMedium p-[17px] focus:ring-none focus:outline-none"
+                className="w-full text-darkGray placeholder:text-[#3333337f] bg-white border border-[#dfdfdf] rounded-[12px] text-sm font-MetMedium p-[17px] focus:ring-none focus:outline-none leading-none"
                 placeholder="1234567890"
               />
             </div>
@@ -93,7 +93,7 @@ const EditProfile = () => {
               type="email"
               id="email"
               name="email"
-              className="w-full text-darkGray placeholder:text-[#3333337f] bg-white border border-[#dfdfdf] rounded-[12px] text-sm font-MetMedium p-[17px] focus:ring-none focus:outline-none"
+              className="w-full text-darkGray placeholder:text-[#3333337f] bg-white border border-[#dfdfdf] rounded-[12px] text-sm font-MetMedium p-[17px] focus:ring-none focus:outline-none leading-none"
               placeholder="Enter your email"
             />
           </div>
@@ -101,7 +101,7 @@ const EditProfile = () => {
       </div>
       <div className="p-4 bg-white border-t-[1px] border-[#D1D1D1] mt-auto">
         <div className="w-full max-w-[278px] sm:ml-auto">
-          <div className="flex flex-col sm:flex-row justify-between ml-auto gap-2">
+          <div className="flex flex-row sm:flex-row justify-between ml-auto gap-2">
             <button className="w-[49%] text-sm font-MetMedium border border-brightBlue p-[13px] text-brightBlue rounded-[37px] hover:bg-gray-100">
               Cancel
             </button>

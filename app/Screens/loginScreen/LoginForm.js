@@ -13,7 +13,7 @@ const LoginForm = () => {
   };
   return (
     <>
-      <div className="flex flex-col items-center justify-center w-full max-w-[345px]">
+      <div className="flex flex-col items-center justify-center w-full max-w-[345px] overflow-hidden">
         <h1 className="text-darkGray text-[32px] font-MetBold leading-[150%] mb-6 md:mb-10">
           Login to AIVA
         </h1>

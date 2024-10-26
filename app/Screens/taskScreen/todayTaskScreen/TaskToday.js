@@ -37,6 +37,15 @@ const TaskToday = () => {
   const [value, setValue] = useState("");
   const completedTasks = taskData.filter((task) => task.completed);
   const activeTasks = taskData.filter((task) => !task.completed);
+  const [isModalDropDown, setIsModalDropDown] = useState(false);
+  const [selectedValue, setSelectedValue] = useState("Note"); // Track selected value
+
+  const toggleModalDropdown1 = () => {
+    setIsModalDropDown((prev) => !prev);
+  };
+  const handleSelect = (value) => {
+    setSelectedValue(value);
+  };
   // simpleModal
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -323,7 +332,7 @@ const TaskToday = () => {
                 {/* -------- High Priority ------- */}
                 <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1]  max-md:basis-[48%] flex flex-row justify-between items-center">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
-                  High Priority
+                    High Priority
                   </p>
                   <input
                     id={`task`}
@@ -352,7 +361,7 @@ const TaskToday = () => {
                 {/* -------- Rich text editor ------- */}
                 <div className="flex flex-col gap-2">
                   <p className="text-darkGray font-MetSemiBold text-sm leading-[114%]">
-                  Description
+                    Description
                   </p>
                   <div className="border border-[#DFDFDF] rounded-xl flex flex-col overflow-hidden">
                     <ReactQuill value={"value"} onChange={setValue} />
@@ -379,12 +388,12 @@ const TaskToday = () => {
         {/* ------ edit modal ------- */}
         <Modal isOpen={isModalOpenEdit} onClose={handleCloseModalEdit}>
           <div className="flex flex-col h-full">
-            <div className="flex justify-between w-full max-w-[636px] mb-3 sm:mb-7 max-md:pr-10 items-start max-md:flex-col max-md:gap-5">
+            <div className="flex justify-between w-full max-w-[636px] mb-3 sm:mb-2 max-md:pr-10 items-start max-md:flex-col max-md:gap-5">
               <div className="reltive flex flex-col gap-2 w-full max-w-[400px]">
                 <input
                   type="text"
                   value="Attend Jay's School Event"
-                  className="text-darkGray text-xl font-MetBold p-[8px_17px] border border-[#DFDFDF] rounded-lg bg-white focus:outline-none "
+                  className="text-darkGray max-[390px]:text-base sm:text-lg md:text-xl font-MetMedium p-[8px_17px] border border-[#DFDFDF] rounded-lg bg-white focus:outline-none "
                 />
                 <div className="flex flex-row gap-2">
                   <div className="w-6 h-6 rounded-full flex justify-center items-center bg-[#EAF0FF]">
@@ -424,39 +433,50 @@ const TaskToday = () => {
                   <div className="relative">
                     <button
                       type="button"
-                      onClick={toggleDropdown1}
-                      className="flex justify-between bg-slightPurple p-[8px_12px] rounded-lg h-[36px] w-full"
+                      onClick={toggleModalDropdown1}
+                      className="flex justify-between items-center bg-slightPurple p-[8px_12px] rounded-lg h-[36px] w-full"
                     >
-                      <div className="flex flex-rowv items-center gap-[5px]">
+                      <div className="flex flex-row items-center gap-[5px]">
                         <Image
                           src={notesBlue}
                           alt="notesBlue"
                           className="object-contain w-4 h-4"
                         />
-                        <p className="font-MetSemiBold text-brightBlue text-[10px]">
-                          Note
+                        {/* Display selected value here */}
+                        <p className="font-MetSemiBold text-brightBlue leading-none text-[10px]">
+                          {selectedValue}
                         </p>
                       </div>
                       <Image
                         src={arrowUp}
                         alt="arrowUp"
                         className={`object-contain transition-transform ${
-                          isDropdownOpen1 ? "rotate-180" : ""
+                          isModalDropDown ? "rotate-180" : ""
                         }`}
                       />
                     </button>
 
                     {/* Dropdown */}
-                    {isDropdownOpen1 && (
+                    {isModalDropDown && (
                       <div className="absolute z-[2] mt-1 bg-white border border-[#f1f1f1] rounded-lg shadow-lg w-full">
                         <ul className="p-2">
-                          <li className="py-1 text-darkGray text-xs font-MetRegular px-2 hover:bg-gray-200 cursor-pointer">
+                          {/* Dropdown items with onClick to update selected value */}
+                          <li
+                            onClick={() => handleSelect("Note")}
+                            className="py-1 text-darkGray text-xs font-MetRegular px-2 hover:bg-gray-100 cursor-pointer"
+                          >
                             Note
                           </li>
-                          <li className="py-1 text-darkGray text-xs font-MetRegular px-2 hover:bg-gray-200 cursor-pointer">
+                          <li
+                            onClick={() => handleSelect("Reminder")}
+                            className="py-1 text-darkGray text-xs font-MetRegular px-2 hover:bg-gray-100 cursor-pointer"
+                          >
                             Reminder
                           </li>
-                          <li className="py-1 text-darkGray text-xs font-MetRegular px-2 hover:bg-gray-200 cursor-pointer">
+                          <li
+                            onClick={() => handleSelect("Task")}
+                            className="py-1 text-darkGray text-xs font-MetRegular px-2 hover:bg-gray-100 cursor-pointer"
+                          >
                             Task
                           </li>
                         </ul>
@@ -541,7 +561,7 @@ const TaskToday = () => {
                   tincidunt mauris
                 </p>
                 <div className="bg-[#f1f1f1] w-full h-[1px] relative content-[''] my-5"></div>
-                <ul className="flex flex-row gap-2 sm:gap-4 items-center max-sm:flex-wrap max-sm:justify-between">
+                <ul className="flex flex-row gap-2 sm:gap-4 items-center max-sm:flex-wrap max-sm:justify-between mt-9">
                   <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
                     <Image src={mark} alt="icons" className="object-contain" />
                     <p className="text-darkGray font-MetMedium text-xs">

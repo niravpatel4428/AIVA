@@ -84,7 +84,7 @@ const TaskMonth = () => {
 
                     return (
                       <>
-                        <div className="flex flex-col gap-2 items-start">
+                        <div className="flex flex-col gap-2 items-center">
                           <p className="text-xs font-MetBold text-darkGray/50">
                             {dayName}
                           </p>

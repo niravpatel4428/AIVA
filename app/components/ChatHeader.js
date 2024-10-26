@@ -27,28 +27,28 @@ const ChatHeader = ({ toggleSidebar, toggleMobileSidebar }) => {
           />
           <div>
             {pathname === "/chatbot" && (
-              <h2 className="text-xl font-MetBold text-darkGray capitalize">
+              <h2 className="text-base sm:text-xl font-MetBold text-darkGray capitalize">
                 Chat Assistant
               </h2>
             )}
             {pathname === "/settings" && (
-              <h2 className="text-xl font-MetBold text-darkGray capitalize">
+              <h2 className="text-base sm:text-xl font-MetBold text-darkGray capitalize">
                 Settings
               </h2>
             )}
             {pathname === "/notifications" && (
-              <h2 className="text-xl font-MetBold text-darkGray capitalize">
+              <h2 className="text-base sm:text-xl font-MetBold text-darkGray capitalize">
                 Notifications
               </h2>
             )}
             {pathname === "/notes" && (
-              <h2 className="text-xl font-MetBold text-darkGray capitalize">
+              <h2 className="text-base sm:text-xl font-MetBold text-darkGray capitalize">
                 Notes
               </h2>
             )}
             {pathname === "/today" && (
               <div className="flex gap-3 flex-row">
-                <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                <h2 className="text-base sm:text-xl font-MetBold text-darkGray capitalize">
                   Today
                 </h2>
                 <div className="bg-[#76767619] rounded-[39px] flex flex-row gap-2 p-[6px_14px] justify-center items-center w-full min-w-[150px] max-w-[150px]">
@@ -65,7 +65,7 @@ const ChatHeader = ({ toggleSidebar, toggleMobileSidebar }) => {
             )}
             {pathname === "/tomorrow" && (
               <div className="flex gap-3 flex-row">
-                <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                <h2 className="text-base sm:text-xl font-MetBold text-darkGray capitalize">
                   Tomorrow
                 </h2>
                 <div className="bg-[#76767619] rounded-[39px] flex flex-row gap-2 p-[6px_14px] justify-center items-center w-full min-w-[150px] max-w-[150px]">
@@ -82,7 +82,7 @@ const ChatHeader = ({ toggleSidebar, toggleMobileSidebar }) => {
             )}
             {pathname === "/week" && (
               <div className="flex gap-3 flex-row">
-                <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                <h2 className="text-base sm:text-xl font-MetBold text-darkGray capitalize">
                   Week
                 </h2>
                 <div className="bg-[#76767619] rounded-[39px] flex flex-row gap-2 p-[6px_14px] justify-center items-center w-full min-w-[150px] max-w-[150px]">
@@ -99,7 +99,7 @@ const ChatHeader = ({ toggleSidebar, toggleMobileSidebar }) => {
             )}
             {pathname === "/month" && (
               <div className="flex gap-3 flex-row">
-                <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                <h2 className="text-base sm:text-xl font-MetBold text-darkGray capitalize">
                   Month
                 </h2>
                 <div className="bg-[#76767619] rounded-[39px] flex flex-row gap-2 p-[6px_14px] justify-center items-center w-full min-w-[150px] max-w-[150px]">
@@ -116,7 +116,7 @@ const ChatHeader = ({ toggleSidebar, toggleMobileSidebar }) => {
             )}
             {pathname === "/year" && (
               <div className="flex gap-3 flex-row">
-                <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                <h2 className="text-base sm:text-xl font-MetBold text-darkGray capitalize">
                   Year
                 </h2>
                 <div className="bg-[#76767619] rounded-[39px] flex flex-row gap-2 p-[6px_14px] justify-center items-center w-full min-w-[150px] max-w-[150px]">
@@ -133,7 +133,7 @@ const ChatHeader = ({ toggleSidebar, toggleMobileSidebar }) => {
             )}
             {pathname === "/tasklist" && (
               <div className="flex gap-3 flex-row">
-                <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                <h2 className="text-base sm:text-xl font-MetBold text-darkGray capitalize">
                   All Tasks
                 </h2>
                 <div className="bg-[#76767619] rounded-[39px] flex flex-row gap-2 p-[6px_14px] justify-center items-center w-full min-w-[150px] max-w-[150px]">
@@ -150,7 +150,7 @@ const ChatHeader = ({ toggleSidebar, toggleMobileSidebar }) => {
             )}
             {pathname === "/calender" && (
               <div className="flex gap-3 flex-row">
-                <h2 className="text-xl font-MetBold text-darkGray capitalize">
+                <h2 className="text-base sm:text-xl font-MetBold text-darkGray capitalize">
                   Today
                 </h2>
                 <div className="bg-[#EAF0FF] rounded-[39px] flex flex-row gap-2 p-[6px_14px] justify-center items-center w-full min-w-[150px] max-w-[150px]">

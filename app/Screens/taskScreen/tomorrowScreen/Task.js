@@ -32,7 +32,7 @@ const TaskComp = ({ task, onClick }) => {
         >
           {task.title}
         </p>
-        <div className="flex gap-2">
+        <div className="flex gap-2 max-[400px]:flex-col">
           <p className="text-[#6C6B6B] text-xs font-MetMedium leading-[150%] flex gap-1 items-center">
             <Image
               src={clockBlue}

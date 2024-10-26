@@ -134,30 +134,30 @@ const CalenderView = () => {
             </button>
           </div>
         </div>
-        <div className="flex max-md:items-center max-md:flex-col flex-row gap-2 md:gap-4 lg:flex-wrap xl:flex-nowrap">
-          <div className="flex max-[400px]:flex-wrap flex-row gap-2 bg-[#EAF0FF] rounded-[80px] max-[390px]:p-5 p-1">
+        <div className="flex max-md:items-center max-md:flex-col flex-row gap-2 md:gap-4 lg:flex-wrap xl:flex-nowrap max-[400px]:w-full">
+          <div className="flex max-[400px]:flex-wrap flex-row gap-2 bg-[#EAF0FF] rounded-[80px] max-[400px]:px-5 max-[400px]:py-2 p-1 max-[400px]:w-full max-[400px]:items-center max-[400px]:justify-center">
             <button
               onClick={() => changeView("timeGridDay")}
-              className="p-[8px_20px] relative bg-transparent text-brightBlue hover:text-white text-xs font-MetBold rounded-[80px] hover:bg-brightBlue"
+              className="max-[400px]:p-[8px_8px] p-[8px_20px] relative bg-transparent text-brightBlue hover:text-white text-xs font-MetBold rounded-[80px] hover:bg-brightBlue"
             >
               Day
             </button>
             <button
               onClick={() => changeView("timeGridWeek")}
-              className="p-[8px_20px] relative bg-transparent text-brightBlue hover:text-white text-xs font-MetBold rounded-[80px] hover:bg-brightBlue"
+              className="max-[400px]:p-[8px_8px] p-[8px_20px] relative bg-transparent text-brightBlue hover:text-white text-xs font-MetBold rounded-[80px] hover:bg-brightBlue"
             >
               Week
             </button>
             <button
               onClick={() => changeView("dayGridMonth")}
-              className="p-[8px_20px] relative bg-transparent text-brightBlue hover:text-white text-xs font-MetBold rounded-[80px] hover:bg-brightBlue"
+              className="max-[400px]:p-[8px_8px] p-[8px_20px] relative bg-transparent text-brightBlue hover:text-white text-xs font-MetBold rounded-[80px] hover:bg-brightBlue"
             >
               Month
             </button>
             <div className="relative">
               <button
                 onClick={toggleCustomCalendar}
-                className={`p-[8px_20px] relative bg-transparent text-brightBlue hover:text-white text-xs font-MetBold rounded-[80px] ${
+                className={`max-[400px]:p-[8px_8px] p-[8px_20px] relative bg-transparent text-brightBlue hover:text-white text-xs font-MetBold rounded-[80px] ${
                   showCustomCalender && "!text-white !bg-brightBlue"
                 }  hover:bg-brightBlue`}
               >
@@ -210,7 +210,7 @@ const CalenderView = () => {
 const renderEventContent = (eventInfo) => {
   const { icon } = eventInfo.event.extendedProps;
   return (
-    <div className="bg-[#E4E1FC] rounded-lg py-2 px-3 flex gap-1 items-center">
+    <div className="bg-[#E4E1FC] !rounded-[10px] py-2 px-3 flex gap-1 items-center">
       <Image src={icon} alt="icon" className="w-3 h-3 object-contain" />
       <span className="text-[10px] font-MetSemiBold text-darkGray w-[90%] overflow-hidden text-ellipsis leading-[100%]">
         {eventInfo.event.title}

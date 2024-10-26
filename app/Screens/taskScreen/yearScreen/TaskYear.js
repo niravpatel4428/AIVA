@@ -15,7 +15,7 @@ const TaskWeek = () => {
 
   return (
     <>
-      <div className="overflow-auto md:overflow-hidden h-full overview max-md:pb-5">
+      <div className="overflow-y-scroll md:overflow-hidden h-full overview max-md:pb-5">
         <div className="flex flex-wrap gap-3 mb-4 pt-[2px] pl-[2px]">
           <button
             className={`text-xs font-MetSemiBold text-brightBlue bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:!outline-none outline-0 ring-0 ring-none `}
@@ -33,7 +33,7 @@ const TaskWeek = () => {
         </div>
         <div className="flex flex-col md:flex-row gap-4 md:h-full">
           {/* ----------- Tasks ------------ */}
-          <div className="w-full md:w-[49%] flex flex-col gap-4 overflow-y-scroll overview md:pb-[200px]">
+          <div className="w-full md:w-[49%] flex flex-col gap-4 overflow-y-scroll overview md:pb-[400px]">
             <div className="flex flex-row items-center gap-2">
               <Image
                 src={tasksBlue}
@@ -84,7 +84,7 @@ const TaskWeek = () => {
 
                     return (
                       <>
-                        <div className="flex flex-col gap-2 items-start">
+                        <div className="flex flex-col gap-2 items-center">
                           <p className="text-xs font-MetBold text-darkGray/50">
                             {dayName}
                           </p>

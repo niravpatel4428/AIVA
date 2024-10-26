@@ -71,7 +71,7 @@ const Sidebar = ({
         }}
       ></div>
       <div
-        className={`relative z-50  flex flex-col justify-between h-[100%] bg-white rounded-[16px] transition-all duration-300 ease-linear py-4 px-2 
+        className={`relative z-50 flex flex-col justify-between h-[100%] overflow-y-scroll bg-white rounded-[16px] transition-all duration-300 ease-linear py-4 px-2 
           ${effectiveIsSidebarCollapsed ? "w-[60px]" : "w-[282px] !px-4"} 
           ${isMobileOpen ? "max-lg:w-[282px]" : "max-lg:-left-full"}`}
       >
@@ -230,7 +230,7 @@ const Sidebar = ({
                       isTasksOpen ? "" : "mt-2" } ${
                 pathname === item.links ? "!bg-[#EAF0FF] rounded-xl" : ""
               } task-icon hover:bg-[#2764fe19] hover:rounded-[12px] p-2 ${
-                effectiveIsSidebarCollapsed ? "px-0" : ""
+                effectiveIsSidebarCollapsed ? "px-0 mt-2" : ""
               }`}
               onClick={() => {
                 isDesktop ? "" : toggleMobileSidebar();
@@ -291,7 +291,7 @@ const Sidebar = ({
             >
               <Image src={mic} alt="mic" className="w-[12px] object-cover" />
               {!effectiveIsSidebarCollapsed && (
-                <span className="transition-all delay-700 ease-in-out text-white text-xs font-MetMedium">
+                <span className="transition-all delay-700 ease-in-out text-white text-xs leading-normal font-MetMedium">
                   Aiva Assistant
                 </span>
               )}

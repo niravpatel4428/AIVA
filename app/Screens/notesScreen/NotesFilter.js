@@ -50,7 +50,7 @@ const NotesFilter = () => {
           <button
             key={index}
             onClick={() => setActiveCategory(category)}
-            className={`text-xs font-MetSemiBold text-brightBlue bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:!outline-none outline-0 ring-0 ring-none ${
+            className={`text-[10px] leading-none font-MetSemiBold text-brightBlue bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:!outline-none outline-0 ring-0 ring-none ${
               activeCategory === category ? "bg-[#2764fe37]" : ""
             }`}
           >
@@ -82,7 +82,7 @@ const NotesFilter = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="text-xs font-MetSemiBold text-[#405FBA] bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:outline-none mt-4">
+                <button className="text-[10px] leading-none font-MetSemiBold text-[#405FBA] bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:outline-none mt-4">
                   {note.category}
                 </button>
               </div>
@@ -111,7 +111,7 @@ const NotesFilter = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="text-xs font-MetSemiBold text-[#405FBA] bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:outline-none mt-4">
+                <button className="text-[10px] leading-none font-MetSemiBold text-[#405FBA] bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:outline-none mt-4">
                   {note.category}
                 </button>
               </div>
@@ -142,7 +142,7 @@ const NotesFilter = () => {
                 </ul>
                 <button
                   onClick={handleOpenModal}
-                  className="text-xs font-MetSemiBold text-[#405FBA] bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:outline-none mt-4"
+                  className="text-[10px] leading-none font-MetSemiBold text-[#405FBA] bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:outline-none mt-4"
                 >
                   {note.category}
                 </button>

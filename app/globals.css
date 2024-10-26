@@ -84,13 +84,10 @@ body {
 .slick-slider {opacity:0;}
 .slick-slider.slick-initialized{opacity:1;}
 .slick-dots {position:relative !important; bottom:0px !important;}
-.loginSlider .slick-dots div {height:6px;width:6px;}
-.loginSlider .slick-dots .slick-active div { width:24px; }
+.loginSlider .slick-dots div {height:6px;width:6px; background-color: rgba(255, 255, 255, 0.20);}
+.loginSlider .slick-dots .slick-active div { width:24px; background-color: #fff; }
 .loginSlider .slick-list {padding-bottom: 35px;}
 
-@media (max-width:1199px) {
-/* .slick-dots {bottom:-46px !important;} */
-}
 
 
 /* ---------- react-time-picker css ---------- */
@@ -132,6 +129,8 @@ input:focus { outline: 0; box-shadow: none !important; }
 .custom-date-range-picker .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range { background-color:#D9ECFF !important; position: relative !important; border-radius: 0 ; -webkit-border-radius: 0 ; -moz-border-radius: 0 ; -ms-border-radius: 0 ; -o-border-radius: 0 ; }
 .custom-date-range-picker .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {z-index: 2 !important;}
 
+
+
 @media (max-width:767px) {
   .custom-date-range-picker .react-datepicker__day{font-size: 12px !important;}
   .custom-date-range-picker .react-datepicker__header  h2{font-size: 12px !important;}
@@ -172,6 +171,7 @@ text-align: center;font-family: "MetropolisMedium"  !important;font-size: 12px !
 .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {width: 100%;}
 .fc-list-event-title {display: flex; gap: 4px; align-items: center; }
 
+
 /* ----- task today.tomorrow..... */
 .fc-v-event {background-color: #E4E1FC !important; border-color: #E4E1FC !important;}
 .fc .fc-daygrid-day.fc-day-today {background-color: transparent !important;}
@@ -181,7 +181,9 @@ text-align: center;font-family: "MetropolisMedium"  !important;font-size: 12px !
 .fc-col-header-cell-cushion {padding: 16px 20px !important;}
 .fc-scrollgrid-section .fc-scrollgrid-section-body  {color: #6C6B6B !important; display: none !important;}
 .fc-theme-standard .fc-list {border: none !important;}
-
+@media (max-width:1199px) {
+  .fc-col-header-cell-cushion {padding: 8px 10px !important;}
+}
 /* rich text editor */
 /* .quill { border-radius:12px !important; -webkit-border-radius:12px !important; -moz-border-radius:12px !important; -ms-border-radius:12px !important; -o-border-radius:12px !important; border: 1px solid #DFDFDF !important; overflow: hidden;} */
 .ql-toolbar.ql-snow { background-color: #EAF0FF;border: none !important;}

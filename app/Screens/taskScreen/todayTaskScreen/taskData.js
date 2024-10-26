@@ -4,7 +4,8 @@ export const taskData = [
     title: "Attend Jay’s School Event",
     time: "06:00 PM - 08:00 PM",
     location: "Samson Street",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
     completed: false,
   },
   {
@@ -12,7 +13,8 @@ export const taskData = [
     title: "Talk to the lawyer about case",
     time: "06:00 PM - 08:00 PM",
     location: "Samson Street",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
     completed: false,
   },
   {
@@ -20,7 +22,8 @@ export const taskData = [
     title: "Clear the laundry",
     time: "06:00 PM - 08:00 PM",
     location: "Samson Street",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
     completed: false,
   },
   {
@@ -28,7 +31,8 @@ export const taskData = [
     title: "Upload the pending documents",
     time: "06:00 PM - 08:00 PM",
     location: "Samson Street",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
     completed: false,
   },
   {
@@ -36,7 +40,8 @@ export const taskData = [
     title: "Attend Jay’s School Event",
     time: "06:00 PM - 08:00 PM",
     location: "Samson Street",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
     completed: true,
   },
   {
@@ -44,7 +49,8 @@ export const taskData = [
     title: "Talk to the lawyer about case",
     time: "06:00 PM - 08:00 PM",
     location: "Samson Street",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
     completed: true,
   },
 ];

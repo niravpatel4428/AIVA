@@ -25,7 +25,7 @@ const ChatBox = () => {
         {/* response box */}
         <div className="relative flex flex-col w-full max-w-[870px] mx-auto overflow-y-auto overview total-height">
           {tasks.map((task) => (
-            <div key={task.id} className="mb-6 last:mb-12">
+            <div key={task.id} className="mb-6 last:mb-24">
               {/* Chat message */}
               <div className="flex flex-row items-end justify-end space-x-3 mb-4">
                 <p className="relative w-fit text-sm font-MetMedium text-darkGray leading-[150%] bg-[url('/img/back.png')] bg-no-repeat bg-cover p-4 rounded-md">
@@ -127,7 +127,7 @@ const ChatBox = () => {
         </div>
         {/* user input textarea */}
         <div className="absolute bottom-0 left-0 right-0 w-full border-t-[1px] border-[#d1d1d1]">
-          <div className="p-[15px_16px_15px_0px_] mx-auto w-full max-w-[870px] max-[930px]:!pl-[15px] flex flex-row items-end gap-3 bg-white max-md:items-center">
+          <div className="p-[15px_16px_15px_0px_] mx-auto w-full max-w-[870px] max-[930px]:!pl-[15px] lg:pl-2 xl:pl-0 flex flex-row items-end gap-3 bg-white max-md:items-center">
             <div className="max-sm:w-8 max-sm:h-8 w-12 h-12 bg-brightBlue hover:bg-brightBlue/80 transition-all duration-300 rounded-[100%] flex justify-center items-center">
               <Image
                 src={mic1}
