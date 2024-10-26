@@ -18,24 +18,24 @@ const LoginForm = () => {
           Login to AIVA
         </h1>
         <div className="w-full flex max-sm:flex-col flex-row gap-4">
-          <div className="w-full border-[#EAEAEA] border rounded-[92px] bg-white p-[16px_32px] flex justify-center items-center hover:bg-gray-100 transition-all duraction-300 cursor-pointer ">
+          <div className="w-full border-[#EAEAEA] border rounded-[92px] bg-white p-[15px_32px] flex justify-center items-center hover:bg-gray-100 transition-all duraction-300 cursor-pointer ">
             <Image src={google} alt="login-icon" className="object-contain" />
           </div>
-          <div className="w-full border-[#EAEAEA] border rounded-[92px] bg-white p-[16px_32px] flex justify-center items-center hover:bg-gray-100 transition-all duraction-300 cursor-pointer ">
+          <div className="w-full border-[#EAEAEA] border rounded-[92px] bg-white p-[15px_32px] flex justify-center items-center hover:bg-gray-100 transition-all duraction-300 cursor-pointer ">
             <Image src={apple} alt="login-icon" className="object-contain" />
           </div>
         </div>
         <div className="my-8 relative flex items-center ">
           <div className="w-[345px] h-[1px] bg-[#DFDFDF] relative"></div>
-          <p className="px-2 text-[#DFDFDF] bg-white text-sm font-MetMedium absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]">
-            Or
+          <p className="px-2 text-[#DFDFDF] bg-white text-sm font-MetMedium leading-none absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]">
+            OR
           </p>
         </div>
         <form className="relative w-full">
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="text-darkGray text-sm font-MetSemiBold mb-2"
+              className="text-darkGray text-sm font-MetSemiBold mb-2 leading-none"
             >
               Email
             </label>
@@ -43,14 +43,14 @@ const LoginForm = () => {
               type="email"
               id="email"
               name="email"
-              className="w-full text-darkGray placeholder:text-[#3333337f] bg-white border border-[#dfdfdf] rounded-[12px] text-sm font-MetMedium p-[17px] focus:ring-none focus:outline-none"
+              className="w-full text-darkGray placeholder:text-[#3333337f] bg-white border border-[#dfdfdf] rounded-[12px] text-sm font-MetMedium p-[16px_17px] focus:ring-none focus:outline-none leading-none"
               placeholder="Enter your email"
             />
           </div>
           <div className="mb-4">
             <label
               htmlFor="password"
-              className="text-darkGray text-sm font-MetSemiBold mb-2"
+              className="text-darkGray text-sm font-MetSemiBold mb-2 leading-none"
             >
               Password
             </label>
@@ -65,41 +65,41 @@ const LoginForm = () => {
                 type={showPassword ? "text" : "password"}
                 id="password"
                 name="password"
-                className="w-full text-darkGray placeholder:text-[#3333337f] bg-white border border-[#dfdfdf] rounded-[12px] text-sm font-MetMedium p-[17px_40px_17px_17px] focus:ring-none focus:outline-none"
+                className="w-full text-darkGray placeholder:text-[#3333337f] bg-white border border-[#dfdfdf] rounded-[12px] text-sm font-MetMedium p-[16px_40px_16px_17px] focus:ring-none focus:outline-none leading-none"
                 placeholder="Enter your password"
               />
             </div>
           </div>
           <div className="flex flex-row justify-between mb-6">
-            <div className="flex flex-row gap-2">
+            <div className="flex flex-row items-center gap-2">
               <input
                 id="push-everything"
                 name="push-notifications"
                 type="radio"
-                className="h-4 w-4 border-brightBlue text-brightBlue focus:ring-brightBlue"
+                className="h-4 w-4 border-brightBlue text-brightBlue focus:ring-brightBlue accent-brightBlue -mt-[2px]"
               />
-              <p className="text-darkGray text-[14px] font-MetMedium">
+              <p className="text-darkGray text-[14px] font-MetMedium  leading-none">
                 Remember me
               </p>
             </div>
             <Link
               href="/"
-              className="text-brightBlue text-sm font-MetRegular underline hover:text-brightBlue/80"
+              className="text-brightBlue text-sm font-MetRegular underline hover:text-brightBlue/80  leading-none"
             >
               Forgot Password
             </Link>
           </div>
           <Link href="settings">
-            <button className="text-white text-sm font-MetMedium bg-brightBlue rounded-[54px] w-full py-[17px] transition-all durtion-300 hover:bg-brightBlue/90">
+            <button className="text-white text-sm font-MetMedium bg-brightBlue rounded-[54px] w-full py-[17px] transition-all durtion-300 hover:bg-brightBlue/90 leading-none">
               Login
             </button>
           </Link>
           <div className="mt-6 text-center">
-            <p className="text-[#707070] text-sm font-MetRegular">
+            <p className="text-[#707070] text-sm font-MetRegular  leading-none">
               Dont have an account?{" "}
               <Link
                 href="/"
-                className="text-brightBlue hover:text-brightBlue/80 underline"
+                className="text-brightBlue hover:text-brightBlue/80 underline  leading-none"
               >
                 {" "}
                 Sign up now

@@ -16,13 +16,13 @@ const ChatHeader = ({ toggleSidebar, toggleMobileSidebar }) => {
           <Image
             src={sidebar}
             alt="toggle sidebar"
-            className="w-6 h-6 object-contain hidden lg:block"
+            className="w-6 h-6 object-contain hidden lg:block mt-[1px] hover:opacity-70"
             onClick={toggleSidebar}
           />
           <Image
             src={sidebar}
             alt="toggle sidebar"
-            className="w-6 h-6 object-contain block lg:hidden"
+            className="w-6 h-6 object-contain block lg:hidden mt-[1px] hover:opacity-70"
             onClick={toggleMobileSidebar}
           />
           <div>
@@ -173,7 +173,7 @@ const ChatHeader = ({ toggleSidebar, toggleMobileSidebar }) => {
           <div className="relative w-full max-w-[321px]">
             <input
               type="text"
-              placeholder="Search for a message"
+              placeholder="Search for a task"
               className="p-[12px_13px_12px_48px] border border-[#dfdfdf] text-xs font-MetMedium text-[#3333337f] w-full rounded-xl shadow-none outline-none"
             />
             <Image

@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import notesBlue from "../../../../public/img/notesBlue.svg";
 import notificationBlue from "../../../../public/img/notificationBlue.svg";
+import tasksBlue from "../../../../public/img/tasksBlue.svg";
 import { taskData } from "./taskData";
 import TaskComp from "./Task";
 // full calender import
@@ -15,7 +16,7 @@ const TaskWeek = () => {
   return (
     <>
       <div className="overflow-auto md:overflow-hidden h-full overview max-md:pb-5">
-        <div className="flex flex-wrap gap-3 mb-4 pt-[2px]">
+        <div className="flex flex-wrap gap-3 mb-4 pt-[2px] pl-[2px]">
           <button
             className={`text-xs font-MetSemiBold text-brightBlue bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:!outline-none outline-0 ring-0 ring-none `}
           >
@@ -35,8 +36,8 @@ const TaskWeek = () => {
           <div className="w-full md:w-[49%] flex flex-col gap-4 overflow-y-scroll overview md:pb-[200px]">
             <div className="flex flex-row items-center gap-2">
               <Image
-                src={notesBlue}
-                alt="notes"
+                src={tasksBlue}
+                alt="tasks"
                 className="object-contain w-5 h-5"
               />
               <p className="text-darkGray text-lg font-MetBold">Tasks (4)</p>

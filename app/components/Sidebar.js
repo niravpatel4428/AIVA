@@ -72,7 +72,7 @@ const Sidebar = ({
       ></div>
       <div
         className={`relative z-50  flex flex-col justify-between h-[100%] bg-white rounded-[16px] transition-all duration-300 ease-linear py-4 px-2 
-          ${effectiveIsSidebarCollapsed ? "w-[60px]" : "w-[282px]"} 
+          ${effectiveIsSidebarCollapsed ? "w-[60px]" : "w-[282px] !px-4"} 
           ${isMobileOpen ? "max-lg:w-[282px]" : "max-lg:-left-full"}`}
       >
         {/* Sidebar Logo */}
@@ -108,7 +108,7 @@ const Sidebar = ({
           }`}
         >
           {/* Tasks Section */}
-          <div className="flex flex-col py-2">
+          <div className="flex flex-col pt-2">
             <div
               onClick={toggleTasksDropdown}
               className={`flex justify-between items-center cursor-pointer px-2`}
@@ -120,7 +120,11 @@ const Sidebar = ({
                   className="object-cover w-6 h-6"
                 />
                 {!effectiveIsSidebarCollapsed && (
-                  <p className="font-MetRegular text-darkGray text-sm capitalize">
+                  <p
+                    className={`font-MetRegular text-darkGray text-sm capitalize ${
+                      isTasksOpen ? "!text-brightBlue" : ""
+                    }`}
+                  >
                     Tasks
                   </p>
                 )}
@@ -137,7 +141,7 @@ const Sidebar = ({
             </div>
 
             {isTasksOpen && !effectiveIsSidebarCollapsed && (
-              <div className="mt-2 flex flex-col">
+              <div className="mt-2 flex flex-col pb-2 mb-2 border-b-[1px] border-[#DFDFDF]">
                 {tasksItem.map((task, index) => (
                   <Link
                     href={task.linkComp}
@@ -156,10 +160,14 @@ const Sidebar = ({
                         <p
                           className={`w-2 h-2 rounded-full bg-brightBlue hidden ${
                             pathname === task.linkComp ? "!block" : ""
-                          }`}
+                          } `}
                         ></p>
                       </div>
-                      <p className="font-MetRegular text-darkGray text-sm capitalize hover:text-brightBlue">
+                      <p
+                        className={`${
+                          pathname === task.linkComp ? "!text-brightBlue" : ""
+                        } font-MetRegular text-darkGray text-sm capitalize hover:text-brightBlue`}
+                      >
                         {task.name}
                       </p>
                     </div>
@@ -219,6 +227,7 @@ const Sidebar = ({
               href={item.links}
               key={idx}
               className={`flex justify-between items-center w-full ${
+                      isTasksOpen ? "" : "mt-2" } ${
                 pathname === item.links ? "!bg-[#EAF0FF] rounded-xl" : ""
               } task-icon hover:bg-[#2764fe19] hover:rounded-[12px] p-2 ${
                 effectiveIsSidebarCollapsed ? "px-0" : ""
@@ -227,9 +236,11 @@ const Sidebar = ({
                 isDesktop ? "" : toggleMobileSidebar();
               }}
             >
-              <div className={`flex justify-between items-center w-full ${
-                effectiveIsSidebarCollapsed ? "!  justify-center" : ""
-              }`}>
+              <div
+                className={`flex justify-between items-center w-full ${
+                  effectiveIsSidebarCollapsed ? "!justify-center" : ""
+                }`}
+              >
                 <div className="flex items-center gap-[14px]">
                   <Image
                     src={pathname === item.links ? item.activeIcon : item.icon}
@@ -248,7 +259,7 @@ const Sidebar = ({
                   ""
                 ) : item.count ? (
                   <>
-                    <p className="bg-brightRed w-4 h-4 text-white rounded-full text-[11px] font-MetMedium flex items-center justify-center">
+                    <p className="bg-brightRed w-4 h-4 text-white rounded-full text-[11px] font-MetMedium leading-none flex items-center justify-center">
                       {item.count}
                     </p>
                   </>

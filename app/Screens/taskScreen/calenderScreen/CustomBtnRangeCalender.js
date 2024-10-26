@@ -82,7 +82,7 @@ const CustomBtnRangeCalender = () => {
             <button
               key={range}
               onClick={() => setRange(range)}
-              className="text-left text-[#293050] text-[13px] md:text-base font-MetRegular leading-[125%] py-2 px-3 rounded md:whitespace-nowrap"
+              className="text-left text-[#293050] text-[13px] md:text-base font-MetRegular hover:text-brightBlue leading-[125%] py-2 px-3 rounded md:whitespace-nowrap"
             >
               {range}
             </button>

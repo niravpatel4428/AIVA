@@ -37,7 +37,7 @@ const LoginSlider = () => {
                   className="w-full max-w-[309px] mx-auto"
                 />
                 <div>
-                  <h2 className="text-white text-2xl lg:text-3xl xl:text-[32px] font-Md leading-[150%]">
+                  <h2 className="text-white text-2xl lg:text-3xl xl:text-[32px] font-MetBold leading-[150%]">
                     {slide.title}
                   </h2>
                   <p className="text-white text-sm xl:text-base font-MetRegular mt-4">

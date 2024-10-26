@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import mark from "../../../../public/img/mark.svg";
 import pen from "../../../../public/img/pen.svg";
@@ -12,6 +12,11 @@ import cancleBlue from "../../../../public/img/cancleBlue.svg";
 import trueBlue from "../../../../public/img/trueBlue.svg";
 import calenderBlue from "../../../../public/img/calenderBlue.svg";
 import notificationBlue from "../../../../public/img/notificationBlue.svg";
+import tasksBlue from "../../../../public/img/tasksBlue.svg";
+import mic1 from "../../../../public/img/mic1.svg";
+import list from "../../../../public/img/list.svg";
+import magic from "../../../../public/img/magic.svg";
+import gallery from "../../../../public/img/gallery.svg";
 import { taskData } from "./taskData";
 import TaskComp from "./Task";
 import Modal from "../../../components/Modal";
@@ -23,9 +28,13 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+// text editor css
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 // ____________________________________________________________
 
 const TaskToday = () => {
+  const [value, setValue] = useState("");
   const completedTasks = taskData.filter((task) => task.completed);
   const activeTasks = taskData.filter((task) => !task.completed);
   // simpleModal
@@ -53,7 +62,7 @@ const TaskToday = () => {
   return (
     <>
       <div className="overflow-auto md:overflow-hidden h-full overview max-md:pb-5">
-        <div className="flex flex-wrap gap-3 mb-4 pt-[2px]">
+        <div className="flex flex-wrap gap-3 mb-4 pt-[2px] pl-[2px]">
           <button
             className={`text-xs font-MetSemiBold text-brightBlue bg-[#2764fe1a] hover:bg-[#2764fe37] transition-all duration-300 p-[8px_16px] rounded capitalize border-none focus:!outline-none outline-0 ring-0 ring-none `}
           >
@@ -73,8 +82,8 @@ const TaskToday = () => {
           <div className="w-full md:w-[49%] flex flex-col gap-4 overflow-y-scroll overview md:pb-[200px]">
             <div className="flex flex-row items-center gap-2">
               <Image
-                src={notesBlue}
-                alt="notes"
+                src={tasksBlue}
+                alt="tasksBlue"
                 className="object-contain w-5 h-5"
               />
               <p className="text-darkGray text-lg font-MetBold">Tasks (4)</p>
@@ -149,9 +158,7 @@ const TaskToday = () => {
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
           <div className="md:flex md:flex-col h-full">
             <div className="flex justify-between w-full max-w-[636px] mb-3 sm:mb-7 max-md:pr-10 max-sm:items-start">
-              <h2 className="text-darkGray text-xl font-MetBold">
-                Attend Jay’s School Event
-              </h2>
+              <h2 className="text-darkGray text-xl font-MetBold">Add New</h2>
               <div className="relative flex flex-row items-center">
                 <button className="bg-[#EAF0FF] w-6 h-6 rounded-full flex justify-center items-center border-none focus:border-none focus:outline-none opacity-40 hover:opacity-100 mr-2">
                   <Left />
@@ -213,6 +220,54 @@ const TaskToday = () => {
                     )}
                   </div>
                 </div>
+                {/* -------- Appointment Date ------- */}
+                <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                  <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
+                    Appointment Date
+                  </p>
+                  <div className="flex flex-row gap-[5px] items-center">
+                    <Image
+                      src={calenderBlue}
+                      alt="calenderBlue"
+                      className="object-contain w-4 h-4"
+                    />
+                    <p className="font-MetMedium text-brightBlue text-xs leading-[150%] cursor-pointer">
+                      Select Due Date
+                    </p>
+                  </div>
+                </div>
+                {/* -------- Start Time ------- */}
+                <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                  <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
+                    Start Time
+                  </p>
+                  <div className="flex flex-row gap-[5px] items-center">
+                    <Image
+                      src={clockBlue}
+                      alt="clockBlue"
+                      className="object-contain w-4 h-4"
+                    />
+                    <p className="font-MetMedium text-brightBlue text-xs leading-[150%] cursor-pointer">
+                      Select Time
+                    </p>
+                  </div>
+                </div>
+                {/* -------- End Time ------- */}
+                <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
+                  <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
+                    End Time
+                  </p>
+                  <div className="flex flex-row gap-[5px] items-center">
+                    <Image
+                      src={clockBlue}
+                      alt="clockBlue"
+                      className="object-contain w-4 h-4"
+                    />
+                    <p className="font-MetMedium text-brightBlue text-xs leading-[150%] cursor-pointer">
+                      Select Time
+                    </p>
+                  </div>
+                </div>
                 {/* ------ due date ------ */}
                 <div className="py-2 sm:pb-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
@@ -240,23 +295,7 @@ const TaskToday = () => {
                     />
                   </div>
                 </div>
-                {/* --------- time -------- */}
-                <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
-                  <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
-                    Time
-                  </p>
-                  <div className="only-time notesFilter-modal">
-                    <TimePicker
-                      onChange={handleTimeChange}
-                      value={time}
-                      clearIcon={null}
-                      format="hh:mm a"
-                      disableClock={false}
-                      className="font-MetMedium text-[#6C6B6B] text-xs leading-[150%] cursor-pointer"
-                    />
-                  </div>
-                </div>
-                {/* -------- projects ------- */}
+                {/* -------- Location ------- */}
                 <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1] max-md:basis-[48%] max-md:flex max-md:flex-col">
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Location
@@ -277,37 +316,62 @@ const TaskToday = () => {
                   <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
                     Projects
                   </p>
-                  <div className="flex flex-wrap gap-2 items-center">
-                    <p className="font-MetSemiBold bg-[#E4EAF9] p-2 rounded-lg text-darkGray text-[10px] w-20 text-center capitalize">
-                      Finance
-                    </p>
-                  </div>
+                  <p className="font-MetMedium text-brightBlue text-xs leading-[150%] cursor-pointer">
+                    Add Projects
+                  </p>
+                </div>
+                {/* -------- High Priority ------- */}
+                <div className="py-2 sm:py-4 md:border-b-[1px] border-[#f1f1f1]  max-md:basis-[48%] flex flex-row justify-between items-center">
+                  <p className="text-[#6C6B6B] font-MetBold text-xs mb-2 leading-[150%] capitalize">
+                  High Priority
+                  </p>
+                  <input
+                    id={`task`}
+                    name="notification-method"
+                    type="radio"
+                    disabled
+                    className="h-4 w-4 "
+                    readOnly
+                  />
                 </div>
               </div>
               <div className="w-full max-w-[451px] pr-6 md:border-r-[1px] border-[#dfdfdf]">
-                <p className="text-[#6C6B6B] font-MetRegular text-sm leading-[150%]">
-                  Lorem ipsum dolor sit amet consectetur. Habitasse pretium leo
-                  tincidunt mauris
-                </p>
-                <div className="bg-[#f1f1f1] w-full h-[1px] relative content-[''] my-5"></div>
-                <ul className="flex flex-row gap-2 sm:gap-4 items-center max-sm:flex-wrap max-sm:justify-between">
-                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
-                    <Image src={mark} alt="icons" className="object-contain" />
-                    <p className="text-darkGray font-MetMedium text-xs">
-                      Mark Complete
-                    </p>
-                  </li>
-                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
-                    <Image src={pen} alt="icons" className="object-contain" />
-                    <p className="text-darkGray font-MetMedium text-xs">Edit</p>
-                  </li>
-                  <li className="flex flex-row gap-2 max-sm:basis-[48%] ">
-                    <Image src={bin} alt="icons" className="object-contain" />
-                    <p className="text-darkGray font-MetMedium text-xs">
-                      Delete
-                    </p>
-                  </li>
-                </ul>
+                <div className="flex flex-col gap-2 mb-10">
+                  <p className="text-darkGray font-MetSemiBold text-sm leading-[114%]">
+                    Title
+                  </p>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Add Task Title"
+                      className="p-[14px_17px] border border-[#DFDFDF] rounded-xl"
+                    />
+                  </div>
+                </div>
+                {/* <div className="bg-darkGray w-full h-[1px] relative content-[''] my-5"></div> */}
+                {/* -------- Rich text editor ------- */}
+                <div className="flex flex-col gap-2">
+                  <p className="text-darkGray font-MetSemiBold text-sm leading-[114%]">
+                  Description
+                  </p>
+                  <div className="border border-[#DFDFDF] rounded-xl flex flex-col overflow-hidden">
+                    <ReactQuill value={"value"} onChange={setValue} />
+                    <div className="flex flex-row justify-end gap-7 border-t border-[#dfdfdf] p-[14px]">
+                      <Image src={list} alt="list" className="object-contain" />
+                      <Image
+                        src={magic}
+                        alt="magic"
+                        className="object-contain"
+                      />
+                      <Image
+                        src={gallery}
+                        alt="gallery"
+                        className="object-contain"
+                      />
+                      <Image src={mic1} alt="mic" className="object-contain" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

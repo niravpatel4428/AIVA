@@ -182,3 +182,7 @@ text-align: center;font-family: "MetropolisMedium"  !important;font-size: 12px !
 .fc-scrollgrid-section .fc-scrollgrid-section-body  {color: #6C6B6B !important; display: none !important;}
 .fc-theme-standard .fc-list {border: none !important;}
 
+/* rich text editor */
+/* .quill { border-radius:12px !important; -webkit-border-radius:12px !important; -moz-border-radius:12px !important; -ms-border-radius:12px !important; -o-border-radius:12px !important; border: 1px solid #DFDFDF !important; overflow: hidden;} */
+.ql-toolbar.ql-snow { background-color: #EAF0FF;border: none !important;}
+.ql-container.ql-snow {border: none !important;}

@@ -28,7 +28,7 @@ const TaskComp = ({ task, onClick }) => {
       </div>
       <div className="flex flex-col gap-2">
         <p
-          className="text-darkGray text-sm leading-[150%] font-MetMedium cursor-pointer"
+          className="text-darkGray hover:text-darkGray/80 text-sm leading-[150%] font-MetMedium cursor-pointer"
           onClick={onClick}
         >
           {task.title}
