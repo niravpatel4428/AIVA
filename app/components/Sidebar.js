@@ -147,6 +147,9 @@ const Sidebar = ({
                         ? "!bg-[#EAF0FF] rounded-xl"
                         : ""
                     } group p-2 hover:bg-[#2764fe19] hover:rounded-[12px]`}
+                    onClick={() => {
+                      isDesktop ? "" : toggleMobileSidebar();
+                    }}
                   >
                     <div className="flex justify-start items-center gap-[14px]">
                       <div className="w-6 h-6 flex justify-center items-center">
@@ -167,6 +170,9 @@ const Sidebar = ({
                   className={`group p-2 hover:bg-[#2764fe19] hover:rounded-[12px] ${
                     pathname === "/calender" ? "!bg-[#EAF0FF] rounded-xl" : ""
                   }`}
+                  onClick={() => {
+                    isDesktop ? "" : toggleMobileSidebar();
+                  }}
                 >
                   <div className="flex justify-start items-center gap-[14px]">
                     <div className="w-6 h-6 flex justify-center items-center">
@@ -217,6 +223,9 @@ const Sidebar = ({
               } task-icon hover:bg-[#2764fe19] hover:rounded-[12px] p-2 ${
                 effectiveIsSidebarCollapsed ? "px-0" : ""
               }`}
+              onClick={() => {
+                isDesktop ? "" : toggleMobileSidebar();
+              }}
             >
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-[14px]">
@@ -256,7 +265,12 @@ const Sidebar = ({
           }`}
         >
           {/* Assistant */}
-          <Link href="/chatbot">
+          <Link
+            href="/chatbot"
+            onClick={() => {
+              isDesktop ? "" : toggleMobileSidebar();
+            }}
+          >
             <button
               className={`${
                 effectiveIsSidebarCollapsed ? "!w-10 !h-10" : "w-full"

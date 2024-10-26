@@ -127,8 +127,8 @@ const ChatBox = () => {
         </div>
         {/* user input textarea */}
         <div className="absolute bottom-0 left-0 right-0 w-full border-t-[1px] border-[#d1d1d1]">
-          <div className="p-[15px_16px_15px_0px_] mx-auto w-full max-w-[870px] flex flex-row items-end gap-3 bg-white">
-            <div className="max-sm:w-10 max-sm:h-10 w-12 h-12 bg-brightBlue hover:bg-brightBlue/80 transition-all duration-300 rounded-[100%] flex justify-center items-center">
+          <div className="p-[15px_16px_15px_0px_] mx-auto w-full max-w-[870px] max-[930px]:!pl-[15px] flex flex-row items-end gap-3 bg-white max-md:items-center">
+            <div className="max-sm:w-8 max-sm:h-8 w-12 h-12 bg-brightBlue hover:bg-brightBlue/80 transition-all duration-300 rounded-[100%] flex justify-center items-center">
               <Image
                 src={mic1}
                 alt="mic1"
