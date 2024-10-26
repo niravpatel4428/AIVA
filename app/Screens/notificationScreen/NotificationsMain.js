@@ -46,15 +46,16 @@ const NotificationsMain = () => {
               notification.unread ? "border-brightBlue" : "border-[#eaeaea]"
             } p-[16px_85px_16px_24px] relative`}
           >
-            <p className="text-darkGray text-sm font-MetMedium">
+            <p className="text-darkGray text-sm font-MetMedium mb-1 md:mb-2">
               {notification.unread && (
                 <span className="relative w-[7px] h-[7px] inline-block bg-brightBlue rounded-[100%] mr-[6px]"></span>
               )}
               {notification.title}
             </p>
-            <p className="text-[#6C6B6B] text-sm font-MetRegular">
-              {notification.message}
-            </p>
+            <p
+        className="text-[#6C6B6B] text-sm font-MetRegular"
+        dangerouslySetInnerHTML={{ __html: notification.message }}
+      ></p>
             <span className="text-[#6C6B6B] text-xs font-MetRegular leading-[150%] absolute top-4 right-4">
               {notification.time}
             </span>
@@ -100,7 +101,7 @@ const notifications = [
     type: "task",
     title: "Task Reminder",
     message:
-      "You have a task due today: 'Talk to the lawyer about case' Don't forget to mark it as done!",
+      "You have a task due today :'<span class='text-brightBlue font-MetBold'>Talk to the lawyer about case </span>' Don't forget to mark it as done!",
     time: "10m ago",
     unread: true,
   },
@@ -108,7 +109,7 @@ const notifications = [
     id: 2,
     type: "task",
     title: "Upcoming Task Tomorrow",
-    message: "'Doctor's appointment' is scheduled for tomorrow at 10 AM.",
+    message: "''<span class='text-brightBlue font-MetBold'>Doctor's appointment</span>' is scheduled for tomorrow at 10 AM.",
     time: "11m ago",
     unread: true,
   },
@@ -133,7 +134,7 @@ const notifications = [
     type: "task",
     title: "Task Reminder",
     message:
-      "You have a task due today: 'Talk to the lawyer about case' Don't forget to mark it as done!",
+      "You have a task due today: '<span class='text-brightBlue font-MetBold'>Talk to the lawyer about case</span>' Don't forget to mark it as done!",
     time: "10m ago",
     unread: false,
   },
@@ -141,7 +142,7 @@ const notifications = [
     id: 6,
     type: "task",
     title: "Upcoming Task Tomorrow",
-    message: "'Doctor's appointment' is scheduled for tomorrow at 10 AM.",
+    message: "'<span class='text-brightBlue font-MetBold'>Doctor's appointment</span>' is scheduled for tomorrow at 10 AM.",
     time: "11m ago",
     unread: false,
   },

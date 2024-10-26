@@ -228,7 +228,7 @@ const Sidebar = ({
               }}
             >
               <div className={`flex justify-between items-center w-full ${
-                effectiveIsSidebarCollapsed ? "!justify-center" : ""
+                effectiveIsSidebarCollapsed ? "!  justify-center" : ""
               }`}>
                 <div className="flex items-center gap-[14px]">
                   <Image
